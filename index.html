@@ -12,7 +12,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/aa72380eaf.js" crossorigin="anonymous"></script>
-    <meta name="description" content="Simulador interactivo que permite calcular el IMC de una persona, buscar recetas, buscar lista de nutricionistas.">
+    <meta name="description"
+        content="Simulador interactivo que permite calcular el IMC de una persona, buscar recetas, buscar lista de nutricionistas.">
     <meta name="keywords" content="INDICE MASA CORPORAL, NUTRICIONISTAS, ALIMENTACION, RECETA, IMC">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
@@ -52,7 +53,86 @@
                 <h1>Calcular IMC</h1>
             </section>
             <section id="calorias" class="section2">
-                <h2>Calculador de calorias diarias</h2>
+                <h2>Calculador de calorias diarias recomendadas</h2>
+                <h4>Para el cálculo debes ingresar los siguientes datos</h4>
+                <div class="section2__contenido">
+                    <div class="section2__calorias--genero">
+                        <div class="section2__calorias--genero--titulo">
+                            ¿Cuál es tu género?
+                        </div>
+                        <div class="section2__calorias--genero--img">
+                            <div class="section2__calorias--genero--img--hombre">
+                                <img class="imagenes-calculadora" src="./assets/img/cuadrohombre.png" alt="">
+                                <div class="btngenero">
+                                    Hombre
+                                </div>
+                            </div>
+                            <div class="section2__calorias--genero--img--mujer">
+                                <img class="imagenes-calculadora" src="./assets/img/cuadromujer.png" alt="">
+                                <div class="btngenero">
+                                    Mujer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section2__calorias--edad">
+                        <div class="section2__calorias--edad--titulo">
+                            ¿Cuántos años tienes?
+                        </div>
+                        <div class="section2__calorias--edad--input">
+                            <input placeholder="21" maxlength="3" type="tel">
+                            <h4>años</h4>
+                        </div>
+                    </div>
+                    <div class="section2__calorias--altura">
+                        <div class="section2__calorias--altura--titulo">
+                            ¿Cuánto mides?
+                        </div>
+                        <div class="section2__calorias--altura--input">
+                            <input placeholder="160" maxlength="3" type="tel">
+                            <h4>cm</h4>
+                        </div>
+                    </div>
+                    <div class="section2__calorias--peso">
+                        <div class="section2__calorias--peso--titulo">
+                            ¿Cuánto pesas?
+                        </div>
+                        <div class="section2__calorias--peso--input">
+                            <input placeholder="60" maxlength="3" type="tel">
+                            <h4>kg</h4>
+                        </div>
+                    </div>
+                    <div class="section2__calorias--actividadfisica">
+                        <div class="section2__calorias--actividadfisica--titulo">
+                            ¿Qué tan activo sos a diario?
+                        </div>
+                        <div class="section2__calorias--actividadfisica--contenido">
+                            <div class="section2__calorias--actividadfisica--contenido1">
+                                <img class="img-actividadfisica" src="./assets/img/actividadfisica1.png" alt="">
+                                <div class="section2__calorias--actividadfisica--contenido1--btn">Sedentario</div>
+                                <h4>Personas que están la mayor tiempo sentadas en ambientes cerrados</h4>
+                            </div>
+                            <div class="section2__calorias--actividadfisica--contenido2">
+                                <img class="img-actividadfisica2" src="./assets/img/actividadfisica2.png" alt="">
+                                <div class="section2__calorias--actividadfisica--contenido2--btn">Moderado o poco Activo</div>
+                                <h4>Sobre todo de pie (ej. cajero, profesor)</h4>
+                            </div>
+                            <div class="section2__calorias--actividadfisica--contenido3">
+                                <img class="img-actividadfisica2" src="./assets/img/actividadfisica3.png" alt="">
+                                <div class="section2__calorias--actividadfisica--contenido2--btn">Activo</div>
+                                <h4>Sobre todo andando (ej. vendedor, camarero)</h4>
+                            </div>
+                            <div class="section2__calorias--actividadfisica--contenido4">
+                                <img class="img-actividadfisica2" src="./assets/img/actividadfisica4.png" alt="">
+                                <div class="section2__calorias--actividadfisica--contenido2--btn">Muy activo</div>
+                                <h4>Trabajos físicos (ej. construcción)</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section2__calorias--btnCalculo">
+                        Calcula tus calorias diarias recomendadas
+                    </div>
+                </div>
             </section>
             <section id="nutris" class="section3">
                 <h2>Lista de Nutricionistas</h2>
@@ -87,6 +167,7 @@
             <p>Site development by <a href="https://github.com/serelopumo"> Sere Lopumo</a>.</p>
         </footer>
     </div>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
