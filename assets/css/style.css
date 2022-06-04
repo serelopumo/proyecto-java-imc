@@ -159,18 +159,129 @@ footer {
 /*Inicia la seccion calcular IMC*/
 .section1 {
   background-color: #00281dff;
-  height: 60rem;
+  height: 110rem;
   padding-top: 2em;
   color: #f7f1e2ff;
   display: flex;
+  flex-direction: column;
   align-content: center;
-  width: 100%; }
+  width: 100%;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 3em; }
   .section1 h1 {
     font-size: 3rem;
     padding-top: 2em;
-    width: 100%;
+    width: 80%;
     display: flex;
-    justify-content: center; }
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center; }
+  .section1 h4 {
+    font-size: 2rem; }
+  .section1__contenido {
+    width: 80%;
+    height: 100rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    gap: 2em; }
+  .section1__contenido__datos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10em; }
+  .section1__calorias--altura {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: #809249ff;
+    color: #f7f1e2ff;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30rem;
+    align-self: center;
+    border-radius: 5rem; }
+    .section1__calorias--altura--titulo {
+      height: 10rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem; }
+    .section1__calorias--altura--input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2em;
+      height: 20rem;
+      padding-bottom: 5rem; }
+      .section1__calorias--altura--input input {
+        font-size: 2.5rem;
+        width: 7rem;
+        text-align: center;
+        background-color: #809249ff;
+        color: #f7f1e2ff;
+        border: none;
+        border-bottom: 2px solid #f7f1e2ff; }
+        .section1__calorias--altura--input input:focus {
+          outline: none; }
+      .section1__calorias--altura--input h4 {
+        font-size: 2.5rem; }
+  .section1__calorias--peso {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: #809249ff;
+    color: #f7f1e2ff;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30rem;
+    align-self: center;
+    border-radius: 5rem; }
+    .section1__calorias--peso--titulo {
+      height: 10rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem; }
+    .section1__calorias--peso--input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2em;
+      height: 20rem;
+      padding-bottom: 5rem; }
+      .section1__calorias--peso--input input {
+        font-size: 2.5rem;
+        width: 7rem;
+        text-align: center;
+        background-color: #809249ff;
+        color: #f7f1e2ff;
+        border: none;
+        border-bottom: 2px solid #f7f1e2ff; }
+        .section1__calorias--peso--input input:focus {
+          outline: none; }
+      .section1__calorias--peso--input h4 {
+        font-size: 2.5rem; }
+  .section1__calorias--btnCalculo {
+    width: 80%;
+    background-color: #f7f1e2ff;
+    color: #00281dff;
+    height: 5rem;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10rem; }
+    .section1__calorias--btnCalculo:hover {
+      background-color: #d0eebbff;
+      color: #00281dff;
+      cursor: pointer; }
 
 /*Inicia la seccion de Calculo calorias diarias*/
 .section2 {
@@ -526,7 +637,8 @@ footer {
   border-radius: 10rem; }
   .btngenero:hover {
     background-color: #f7f1e2ff;
-    color: #00281dff; }
+    color: #00281dff;
+    cursor: pointer; }
 
 .imagenes-calculadora {
   max-width: 100px; }
@@ -534,19 +646,58 @@ footer {
 /*Inicia la seccion de Nutricionistas*/
 .section3 {
   background-color: #d0eebbff;
-  height: 60rem;
+  height: auto;
   padding-top: 2em;
   color: #00281dff;
   display: flex;
+  flex-direction: column;
   align-content: center;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  gap: 3em;
+  padding-bottom: 5em; }
   .section3 h2 {
     font-size: 3rem;
     padding-top: 2em;
     width: 100%;
     display: flex;
     justify-content: center; }
+  .section3__contenido {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+    width: 100%; }
+  .section3__contenido__card {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    gap: .4em;
+    background-color: #809249ff;
+    color: #f7f1e2ff;
+    height: 34rem;
+    border-radius: 10%; }
+  .section3__contenido--titulo {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3rem; }
+  .section3__contenido--imagen {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%; }
+  .section3__contenido--datos {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: capitalize; }
 
 /*Inicia la seccion de buscador de recetas*/
 .section4 {
@@ -577,11 +728,17 @@ footer {
     height: 70rem; }
   /*Index*/
   /*Seccion calculo IMC*/
+  .section1 {
+    height: 80rem; }
   .section1 h1 {
     font-size: 6rem; }
+  .section1__contenido__datos {
+    flex-direction: row; }
+  .section1__calorias--btnCalculo {
+    width: 40%; }
   /*Seccion calcular calorias diarias*/
   .section2 {
-    height: 210rem; }
+    height: 200rem; }
   .section2 h2 {
     font-size: 6rem; }
   .section2__calorias--genero {
@@ -611,6 +768,8 @@ footer {
   /*Seccion Nutricionistas*/
   .section3 h2 {
     font-size: 6rem; }
+  .section3__contenido__card {
+    width: 25%; }
   /*Seccion Recetas*/
   .section4 h2 {
     font-size: 6rem; } }

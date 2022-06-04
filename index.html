@@ -17,6 +17,7 @@
     <meta name="keywords" content="INDICE MASA CORPORAL, NUTRICIONISTAS, ALIMENTACION, RECETA, IMC">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
@@ -50,7 +51,33 @@
         </header>
         <main>
             <section id="imc" class="section1">
-                <h1>Calcular IMC</h1>
+                <h1>Calcular Indice de Masa Corporal (IMC)</h1>
+                <h4>Para el cálculo debes ingresar los siguientes datos</h4>
+                <div class="section1__contenido">
+                    <div class="section1__contenido__datos">
+                        <div class="section1__calorias--altura">
+                            <div class="section1__calorias--altura--titulo">
+                                ¿Cuánto mides?
+                            </div>
+                            <div class="section1__calorias--altura--input">
+                                <input id="labelIMCaltura" placeholder="160" maxlength="3" min="1" type="tel" >
+                                <h4>cm</h4>
+                            </div>
+                        </div>
+                        <div class="section1__calorias--peso">
+                            <div class="section1__calorias--peso--titulo">
+                                ¿Cuánto pesas?
+                            </div>
+                            <div class="section1__calorias--peso--input">
+                                <input placeholder="60" maxlength="3" type="tel">
+                                <h4>kg</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section1__calorias--btnCalculo">
+                        Calcula tu IMC
+                    </div>
+                </div>
             </section>
             <section id="calorias" class="section2">
                 <h2>Calculador de calorias diarias recomendadas</h2>
@@ -80,7 +107,7 @@
                             ¿Cuántos años tienes?
                         </div>
                         <div class="section2__calorias--edad--input">
-                            <input placeholder="21" maxlength="3" type="tel">
+                            <input placeholder="21" maxlength="3" type="tel" min="1">
                             <h4>años</h4>
                         </div>
                     </div>
@@ -114,7 +141,8 @@
                             </div>
                             <div class="section2__calorias--actividadfisica--contenido2">
                                 <img class="img-actividadfisica2" src="./assets/img/actividadfisica2.png" alt="">
-                                <div class="section2__calorias--actividadfisica--contenido2--btn">Moderado o poco Activo</div>
+                                <div class="section2__calorias--actividadfisica--contenido2--btn">Moderado o poco Activo
+                                </div>
                                 <h4>Sobre todo de pie (ej. cajero, profesor)</h4>
                             </div>
                             <div class="section2__calorias--actividadfisica--contenido3">
@@ -136,6 +164,9 @@
             </section>
             <section id="nutris" class="section3">
                 <h2>Lista de Nutricionistas</h2>
+                <!-- Agrego contenido con js -->
+                <div class="section3__contenido">
+                </div>
             </section>
             <section id="recetas" class="section4">
                 <h2>Buscador de Recetas</h2>
@@ -167,7 +198,7 @@
             <p>Site development by <a href="https://github.com/serelopumo"> Sere Lopumo</a>.</p>
         </footer>
     </div>
-    <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
