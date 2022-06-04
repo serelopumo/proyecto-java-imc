@@ -51,7 +51,8 @@ footer {
   align-items: center;
   align-content: center;
   color: #f7f1e2ff;
-  position: fixed; }
+  position: fixed;
+  z-index: 100; }
 
 .container-fluid {
   width: 100%;
@@ -159,7 +160,6 @@ footer {
 /*Inicia la seccion calcular IMC*/
 .section1 {
   background-color: #00281dff;
-  height: 110rem;
   padding-top: 2em;
   color: #f7f1e2ff;
   display: flex;
@@ -168,7 +168,9 @@ footer {
   width: 100%;
   justify-content: flex-start;
   text-align: center;
-  gap: 3em; }
+  gap: 3em;
+  height: auto;
+  padding-bottom: 5em; }
   .section1 h1 {
     font-size: 3rem;
     padding-top: 2em;
@@ -188,7 +190,8 @@ footer {
     justify-content: center;
     align-items: center;
     align-self: center;
-    gap: 2em; }
+    gap: 2em;
+    height: auto; }
   .section1__contenido__datos {
     display: flex;
     flex-direction: column;
@@ -282,6 +285,24 @@ footer {
       background-color: #d0eebbff;
       color: #00281dff;
       cursor: pointer; }
+  .section1__resultadoIMC {
+    width: 60%; }
+    .section1__resultadoIMC--datos {
+      width: 100%;
+      min-height: 20rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      justify-content: center;
+      align-items: center;
+      background-color: #f7f1e2ff;
+      color: #00281dff; }
+  .section1__btnIMC {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em; }
 
 /*Inicia la seccion de Calculo calorias diarias*/
 .section2 {
@@ -662,13 +683,19 @@ footer {
     width: 100%;
     display: flex;
     justify-content: center; }
+  .section3__caja {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em; }
   .section3__contenido {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     gap: 5em;
-    width: 100%; }
+    width: 80%; }
   .section3__contenido__card {
     width: 80%;
     display: flex;
@@ -699,6 +726,34 @@ footer {
     justify-content: center;
     text-transform: capitalize; }
 
+.d-flex {
+  width: 80%;
+  align-self: center; }
+
+.form-control {
+  font-size: 1.5rem; }
+
+.btn {
+  font-size: 1.5rem; }
+
+#btnBuscarNutri {
+  color: #f7f1e2ff;
+  background-color: #809249ff;
+  border-color: #809249ff; }
+
+.btn-outline-success {
+  color: #809249ff; }
+
+.list-group {
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: #809249ff;
+  z-index: 1; }
+
+.list-group-item {
+  color: #f7f1e2ff;
+  background-color: #809249ff; }
+
 /*Inicia la seccion de buscador de recetas*/
 .section4 {
   background-color: #00281dff;
@@ -728,8 +783,6 @@ footer {
     height: 70rem; }
   /*Index*/
   /*Seccion calculo IMC*/
-  .section1 {
-    height: 80rem; }
   .section1 h1 {
     font-size: 6rem; }
   .section1__contenido__datos {
@@ -768,8 +821,19 @@ footer {
   /*Seccion Nutricionistas*/
   .section3 h2 {
     font-size: 6rem; }
+  .section3__contenido {
+    gap: 10em; }
+  .section3__caja {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0em; }
   .section3__contenido__card {
-    width: 25%; }
+    width: 35%; }
+  .list-group {
+    width: 25%;
+    font-size: 2rem; }
+  .d-flex {
+    width: 40%; }
   /*Seccion Recetas*/
   .section4 h2 {
     font-size: 6rem; } }

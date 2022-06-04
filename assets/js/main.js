@@ -90,21 +90,28 @@ function calcularFormula() {
             break;
     }
 }
+preguntarDatos();
+calcularFormula();
+alert("Sus calorias diarias recomendadas son:" + " " + resultadoFormula);
+
 const calcularIMC = () => {
     tallaIMC = tallaIMC * 0.01
     resIMC = pesoIMC / (Math.pow(tallaIMC, 2))
 }
 const datosIMC = () => {
-    // let labelAltura = document.getElementById("labelIMCaltura");
-    // tallaIMC = parseInt(labelAltura.innerHTML);
-    // console.log(tallaIMC)
-    pesoIMC = parseInt(prompt("Ingresar su peso actual en kg:"));
+    let inputIMCaltura = document.getElementById("inputIMCaltura");
+    inputIMCaltura.addEventListener("input", ()=>console.log(inputIMCaltura.value));
+
+    let inputIMCpeso = document.getElementById("inputIMCpeso");
+    inputIMCpeso.addEventListener("input", ()=>console.log(inputIMCpeso.value));
+
+    pesoIMC = parseInt(inputIMCpeso.value);
     while (!pesoIMC) {
-        pesoIMC = parseInt(prompt("Ingresar su peso actual en kg:"));
+        pesoIMC = parseInt(inputIMCpeso.value);
     }
-    tallaIMC = parseInt(prompt("Ingrese su talla en cm"));
+    tallaIMC = parseInt(inputIMCaltura);
     while (!tallaIMC) {
-        tallaIMC = parseInt(prompt("Ingrese su talla en cm"));
+        tallaIMC = parseInt(inputIMCaltura.value);
     }
 
 }
@@ -124,15 +131,35 @@ const categoriaIMC = () => {
     }
 }
 
-datosIMC();
-calcularIMC();
-categoriaIMC();
+function MostrarIMC(){
+    datosIMC();
+    calcularIMC();
+    categoriaIMC();
+    return `<h3>IMC: ${resIMC.toFixed(2)}</h3>
+            <h3>Clasificacion IMC: ${resClasificacion}</h3>`
+}
 
-console.log("IMC:" + resIMC);
-console.log("Clasificacion IMC: \n" + resClasificacion)
-preguntarDatos();
-calcularFormula();
-alert("Sus calorias diarias recomendadas son:" + " " + resultadoFormula);
+//Evento en btn calcular IMC
+let btnCalcularIMC = document.getElementById("btnCalularIMC");
+btnCalcularIMC.addEventListener('click', ClickenIMC);
+
+function ClickenIMC(){
+    BorrarContenidoIMC();
+    let contenidoIMC = document.querySelector('.section1__resultadoIMC');
+    let resultadoIMC = document.createElement('div')
+    resultadoIMC.className = "section1__resultadoIMC--datos";
+    resultadoIMC.innerHTML = MostrarIMC();
+    contenidoIMC.append(resultadoIMC);
+}
+
+//Evento en calcular otro IMC
+let btnCalcularOtroIMC = document.getElementById("btnBorrarCalculoIMC");
+btnCalcularOtroIMC.addEventListener('click', BorrarContenidoIMC);
+
+function BorrarContenidoIMC(){
+    let contenidoIMC = document.querySelector('.section1__resultadoIMC');
+    contenidoIMC.innerHTML = "";
+}
 
 //Creo un array llamado cartilla con los datos de los objetos nutricionistas
 const cartilla = [
@@ -151,18 +178,97 @@ console.table(cartilla);
 cartilla.push(new Nutricionistas("Carlos Javier Caire", "Palermo", "Olleros 1300", "vegetarianos", "sancor", "1198453219","./assets/img/nutri8.jpg"));
 console.table(cartilla);
 
-//Recorro al array cartilla para hacer las card en el html utilizando el DOM
-let contenidoCard = document.querySelector('.section3__contenido');
-for(Nutricionistas of cartilla){
-    let nuevaCard = document.createElement('div')
-    nuevaCard.className = "section3__contenido__card";
-    nuevaCard.innerHTML = Nutricionistas.crearHtml();
-    contenidoCard.append(nuevaCard);
+//Agrego metodos de busqueda
+//Evento en el boton btnTaerTodosNutris 
+let btnNutris = document.getElementById("btnTaerTodosNutris");
+btnNutris.addEventListener("click", TraerTodosNutris);
+
+function TraerTodosNutris(){
+    BorrarContenido();    
+    let contenidoCard = document.querySelector('.section3__contenido');
+    for(Nutricionistas of cartilla){
+        let nuevaCard = document.createElement('div')
+        nuevaCard.className = "section3__contenido__card";
+        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        contenidoCard.append(nuevaCard);
+    }
 }
 
-//Agrego metodos de busqueda
-//Filtro nutricionistas por especialidad
-const resEspecialidad = cartilla.filter((el) => el.especialidad == "vegetarianos");
-if (!(resEspecialidad.length === 0)) {
-    console.log(resEspecialidad);
+//Traer Nutris vegetarianos: creo evento en el boton y llamo a funcion que interactua con el DOM
+let btnNutrisVeg = document.getElementById("btnTraerNutrisVeg");
+btnNutrisVeg.addEventListener("click",TraerNutrisVeg);
+
+function TraerNutrisVeg(){
+    BorrarContenido();
+    let contenidoCard = document.querySelector('.section3__contenido');
+    const resultado1 = cartilla.filter((el) => el.especialidad == "vegetarianos");
+    for(Nutricionistas of resultado1){
+        let nuevaCard = document.createElement('div')
+        nuevaCard.className = "section3__contenido__card";
+        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        contenidoCard.append(nuevaCard);
+    }
+}
+
+//Traer Nutris celiacos: creo evento en el boton y llamo a funcion que interactua con el DOM
+let btnNutrisCel = document.getElementById("btnTraerNutrisCel");
+btnNutrisCel.addEventListener("click",TraerNutrisCel);
+
+function TraerNutrisCel(){
+    BorrarContenido();
+    let contenidoCard = document.querySelector('.section3__contenido');
+    const resultado1 = cartilla.filter((el) => el.especialidad == "celíacos");
+    for(Nutricionistas of resultado1){
+        let nuevaCard = document.createElement('div')
+        nuevaCard.className = "section3__contenido__card";
+        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        contenidoCard.append(nuevaCard);
+    }
+}
+
+//Traer Nutris diabeticos: creo evento en el boton y llamo a funcion que interactua con el DOM
+let btnNutrisDiabe = document.getElementById("btnTraerNutrisDiab");
+btnNutrisDiabe.addEventListener("click",TraerNutrisDiab);
+
+function TraerNutrisDiab(){
+    BorrarContenido();
+    let contenidoCard = document.querySelector('.section3__contenido');
+    const resultado1 = cartilla.filter((el) => el.especialidad == "diabéticos");
+    for(Nutricionistas of resultado1){
+        let nuevaCard = document.createElement('div')
+        nuevaCard.className = "section3__contenido__card";
+        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        contenidoCard.append(nuevaCard);
+    }
+}
+
+//Borrar Contenido Nutris: borro contenido del html mediante el DOM
+function BorrarContenido(){
+    let contenidoCard = document.querySelector('.section3__contenido');
+    contenidoCard.innerHTML = "";
+}
+
+let inputBuscoNutri = document.getElementById("inputBuscarNutri");
+inputBuscoNutri.addEventListener("input", ()=>console.log(inputBuscoNutri.value));
+
+
+
+
+let btnBuscarNutri = document.getElementById("btnBuscarNutri");
+btnBuscarNutri.addEventListener("click", TraerNutriBuscado);
+
+function TraerNutriBuscado(){
+    //Paso todo a capitalize
+    let stringNutri = inputBuscoNutri.value;
+    let upperNutri = stringNutri.charAt(0).toUpperCase() + stringNutri.slice(1).toLowerCase();
+
+    BorrarContenido();
+    let contenidoCard = document.querySelector('.section3__contenido');
+    const resultado1 = cartilla.filter((el) => el.nombre.includes(`${upperNutri}`));
+    for(Nutricionistas of resultado1){
+        let nuevaCard = document.createElement('div')
+        nuevaCard.className = "section3__contenido__card";
+        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        contenidoCard.append(nuevaCard);
+    }
 }

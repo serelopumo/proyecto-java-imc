@@ -48,6 +48,7 @@ footer {
     align-content: center;
     color: $color-cuaternario;
     position: fixed;
+    z-index: 100;
 }
 
 .container-fluid {
@@ -200,7 +201,6 @@ footer {
 /*Inicia la seccion calcular IMC*/
 .section1 {
     background-color: $color-secundario;
-    height: 110rem;
     padding-top: 2em;
     color: $color-cuaternario;
     display: flex;
@@ -210,6 +210,8 @@ footer {
     justify-content: flex-start;
     text-align: center;
     gap:3em;
+    height: auto;
+    padding-bottom: 5em;
 
     & h1 {
         font-size: 3rem;
@@ -233,6 +235,7 @@ footer {
         align-items: center;
         align-self: center;
         gap:2em;
+        height: auto;
     }
     &__contenido__datos{
         display: flex;
@@ -350,6 +353,29 @@ footer {
             cursor: pointer;
         }
     }
+    &__resultadoIMC{
+       width: 60%;
+
+        &--datos{
+            width: 100%;
+            min-height: 20rem;
+            display: flex;
+            flex-direction: column;
+            gap:2em;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-cuaternario;
+            color: $color-secundario;
+        }
+    }
+    &__btnIMC{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:5em;
+    }
+
 }
 /*Inicia la seccion de Calculo calorias diarias*/
 .section2 {
@@ -824,13 +850,20 @@ footer {
         display: flex;
         justify-content: center;
     }
+    &__caja{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:3em;
+    }
     &__contenido{
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
         align-items: center;
         gap:5em;
-        width: 100%;
+        width: 80%;
     }
     &__contenido__card{
         width: 80%;
@@ -865,6 +898,37 @@ footer {
         justify-content: center;
         text-transform: capitalize;
     }
+}
+//Inicia clases Bootstrap del form Search
+.d-flex{
+    width: 80%;
+    align-self: center;
+}
+.form-control{
+    font-size: 1.5rem;
+    
+}
+.btn{
+    font-size: 1.5rem;
+}
+#btnBuscarNutri{
+    color: $color-cuaternario;
+    background-color: $color-primario;
+    border-color: $color-primario;
+}
+.btn-outline-success{
+    color: $color-primario;
+}
+//Inicia clases Bootstrap del form Search
+.list-group{
+    width: 100%;
+    font-size: 1.5rem;
+    background-color: $color-primario;
+    z-index: 1;
+}
+.list-group-item{
+    color: $color-cuaternario;
+    background-color: $color-primario;
 }
 /*Inicia la seccion de buscador de recetas*/
 .section4 {
@@ -905,9 +969,6 @@ footer {
 
     /*Index*/
     /*Seccion calculo IMC*/
-    .section1{
-        height: 80rem;
-    }
     .section1 h1 {
         font-size: 6rem;
     }
@@ -970,8 +1031,23 @@ footer {
     .section3 h2 {
         font-size: 6rem;
     }
+    .section3__contenido{
+        gap:10em;
+    }
+    .section3__caja{
+        flex-direction: row;
+        align-items: flex-start;
+        gap:0em;
+    }
     .section3__contenido__card{
+        width: 35%;
+    }
+    .list-group{
         width: 25%;
+        font-size: 2rem;
+    }
+    .d-flex{
+        width: 40%;
     }
     /*Seccion Recetas*/
     .section4 h2 {

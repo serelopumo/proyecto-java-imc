@@ -60,7 +60,7 @@
                                 ¿Cuánto mides?
                             </div>
                             <div class="section1__calorias--altura--input">
-                                <input id="labelIMCaltura" placeholder="160" maxlength="3" min="1" type="tel" >
+                                <input id="inputIMCaltura" placeholder="160" maxlength="3" min="1" type="tel" >
                                 <h4>cm</h4>
                             </div>
                         </div>
@@ -69,13 +69,21 @@
                                 ¿Cuánto pesas?
                             </div>
                             <div class="section1__calorias--peso--input">
-                                <input placeholder="60" maxlength="3" type="tel">
+                                <input id="inputIMCpeso" placeholder="60" maxlength="3" type="tel">
                                 <h4>kg</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="section1__calorias--btnCalculo">
-                        Calcula tu IMC
+                    <div class="section1__btnIMC">
+                        <button id="btnCalularIMC" class="section1__calorias--btnCalculo">
+                            Calcula tu IMC
+                        </button>
+                        <button id="btnBorrarCalculoIMC" class="section1__calorias--btnCalculo">
+                            Calcular otro IMC
+                        </button>
+                    </div>
+                    <div class="section1__resultadoIMC">
+                        <!--Agrego resultado IMC desde js-->
                     </div>
                 </div>
             </section>
@@ -164,13 +172,26 @@
             </section>
             <section id="nutris" class="section3">
                 <h2>Lista de Nutricionistas</h2>
-                <!-- Agrego contenido con js -->
-                <div class="section3__contenido">
+                <form class="d-flex" role="search">
+                    <input id="inputBuscarNutri" class="form-control me-2" type="search" placeholder="Nutricionista" aria-label="Search">
+                    <button id="btnBuscarNutri" class="btn btn-outline-success" type="submit">Buscar</button>
+                  </form>
+                <div class="section3__caja">
+                    <div id="list-example" class="list-group">
+                        <a id="btnTaerTodosNutris" class="list-group-item list-group-item-action" href="#list-item-1">Todos los nutricionistas</a>
+                        <a id="btnTraerNutrisVeg" class="list-group-item list-group-item-action" href="#list-item-2">Vegetarianos</a>
+                        <a id="btnTraerNutrisCel" class="list-group-item list-group-item-action" href="#list-item-3">Celíacos</a>
+                        <a id="btnTraerNutrisDiab" class="list-group-item list-group-item-action" href="#list-item-4">Diabéticos</a>
+                      </div>
+                      <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="section3__contenido scrollspy-example" tabindex="0">
+                        <!-- Agrego contenido con js con la clase section3__contenido-->
+                      </div>
+                </section>
+                <section id="recetas" class="section4">
+                    <h2>Buscador de Recetas</h2>
+                </section>
                 </div>
-            </section>
-            <section id="recetas" class="section4">
-                <h2>Buscador de Recetas</h2>
-            </section>
+                
         </main>
         <footer>
             <div class="footerDatos">
