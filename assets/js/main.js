@@ -25,25 +25,7 @@ let resIMC;
 let resClasificacion;
 
 //declaro clases
-class Nutricionistas {
-    constructor(nombre, barrio, direccion, especialidad, obrasocial, telefono,imagen) {
-        this.nombre = nombre;
-        this.barrio = barrio;
-        this.direccion = direccion;
-        this.especialidad = especialidad;
-        this.obrasocial = obrasocial;
-        this.telefono = telefono;
-        this.imagen =  imagen;
-    }
-    crearHtml = () => {
-        return `<img src="${this.imagen}" class="section3__contenido--imagen" alt="${this.nombre}">
-                <h3 class="section3__contenido--titulo">${this.nombre}</h3>
-                <div class="section3__contenido--datos">
-                    <p>Barrio: ${this.barrio} <br>Dirección: ${this.direccion}<br>Especialidad: ${this.especialidad}<br>Obra social: ${this.obrasocial} <br>Teléfono: ${this.telefono}</p>
-                </div>`
-    }
-
-}
+import Nutris from "./clases.js";
 
 //declaro funciones
 function preguntarDatos() {
@@ -90,31 +72,19 @@ function calcularFormula() {
             break;
     }
 }
-preguntarDatos();
-calcularFormula();
-alert("Sus calorias diarias recomendadas son:" + " " + resultadoFormula);
+// preguntarDatos();
+// calcularFormula();
+// alert("Sus calorias diarias recomendadas son:" + " " + resultadoFormula);
 
 const calcularIMC = () => {
     tallaIMC = tallaIMC * 0.01
     resIMC = pesoIMC / (Math.pow(tallaIMC, 2))
 }
-const datosIMC = () => {
-    let inputIMCaltura = document.getElementById("inputIMCaltura");
-    inputIMCaltura.addEventListener("input", ()=>console.log(inputIMCaltura.value));
 
-    let inputIMCpeso = document.getElementById("inputIMCpeso");
-    inputIMCpeso.addEventListener("input", ()=>console.log(inputIMCpeso.value));
-
-    pesoIMC = parseInt(inputIMCpeso.value);
-    while (!pesoIMC) {
-        pesoIMC = parseInt(inputIMCpeso.value);
-    }
-    tallaIMC = parseInt(inputIMCaltura);
-    while (!tallaIMC) {
-        tallaIMC = parseInt(inputIMCaltura.value);
-    }
-
+function ErrorValidacionIMC(){
+    return `<h3>¡Vaya!, algo ha ido mal. Por favor, corrige los campos destacados.</h3>`
 }
+
 const categoriaIMC = () => {
     if (resIMC < 18.5) {
         resClasificacion = "Bajo peso"
@@ -132,29 +102,47 @@ const categoriaIMC = () => {
 }
 
 function MostrarIMC(){
-    datosIMC();
-    calcularIMC();
-    categoriaIMC();
     return `<h3>IMC: ${resIMC.toFixed(2)}</h3>
             <h3>Clasificacion IMC: ${resClasificacion}</h3>`
 }
 
 //Evento en btn calcular IMC
 let btnCalcularIMC = document.getElementById("btnCalularIMC");
-btnCalcularIMC.addEventListener('click', ClickenIMC);
+btnCalcularIMC.addEventListener('click', ()=>{ClickenIMC()});
 
 function ClickenIMC(){
     BorrarContenidoIMC();
-    let contenidoIMC = document.querySelector('.section1__resultadoIMC');
-    let resultadoIMC = document.createElement('div')
-    resultadoIMC.className = "section1__resultadoIMC--datos";
-    resultadoIMC.innerHTML = MostrarIMC();
-    contenidoIMC.append(resultadoIMC);
+    let inputIMCaltura = document.getElementById("inputIMCaltura");
+    inputIMCaltura.addEventListener("input", ()=>console.log(inputIMCaltura.value));
+
+    let inputIMCpeso = document.getElementById("inputIMCpeso");
+    inputIMCpeso.addEventListener("input", ()=>console.log(inputIMCpeso.value));
+
+    pesoIMC = parseInt(inputIMCpeso.value);
+    tallaIMC = parseInt(inputIMCaltura.value);
+
+    if ((!pesoIMC) || (!tallaIMC)) {
+        let contenidoIMC = document.querySelector('.section1__resultadoIMC');
+        let resultadoIMC = document.createElement('div')
+        resultadoIMC.className = "section1__resultadoIMC--datos";
+        resultadoIMC.innerHTML = ErrorValidacionIMC();
+        contenidoIMC.append(resultadoIMC);
+    }
+    else{
+        calcularIMC();
+        categoriaIMC();
+        let contenidoIMC = document.querySelector('.section1__resultadoIMC');
+        let resultadoIMC = document.createElement('div')
+        resultadoIMC.className = "section1__resultadoIMC--datos";
+        resultadoIMC.innerHTML = MostrarIMC();
+        contenidoIMC.append(resultadoIMC);
+    }
+    
 }
 
 //Evento en calcular otro IMC
 let btnCalcularOtroIMC = document.getElementById("btnBorrarCalculoIMC");
-btnCalcularOtroIMC.addEventListener('click', BorrarContenidoIMC);
+btnCalcularOtroIMC.addEventListener('click',()=>{BorrarContenidoIMC()});
 
 function BorrarContenidoIMC(){
     let contenidoIMC = document.querySelector('.section1__resultadoIMC');
@@ -163,81 +151,86 @@ function BorrarContenidoIMC(){
 
 //Creo un array llamado cartilla con los datos de los objetos nutricionistas
 const cartilla = [
-    new Nutricionistas("Sabrina Lopez Meyer", "Palermo", "Bulnes 2821 1c", "celíacos", "swiss medical", "1563291089","./assets/img/nutri1.jpg"),
-    new Nutricionistas("Rafael Hernandez", "Belgrano", "Cuidad de la paz 2223 3a", "vegetarianos", "osde", "1523545476","./assets/img/nutri4.jpg"),
-    new Nutricionistas("Luciano Caseres", "Caballito", "Acoyte 56 2a", "celíacos", "union personal", "1532543476","./assets/img/nutri6.jpg"),
-    new Nutricionistas("Marina Paz Vallese", "Belgrano", "Cuidad de la paz 2222", "diabéticos", "osde", "1122333421","./assets/img/nutri2.jpg"),
-    new Nutricionistas("Rodrigo Fernández", "Palermo", "Charcas 2342", "vegetarianos", "swiss medical", "2323321456","./assets/img/nutri7.jpg"),
-    new Nutricionistas("Mónica Facchini", "Palermo", "Güemes 3574", "diabéticos", "osde", "1174893424","./assets/img/nutri3.jpg"),
-    new Nutricionistas("Mariela Aronow", "Caballito", "Lavalleja 106", "vegetarianos", "union personal","2345786743","./assets/img/nutri5.jpg"),
-    new Nutricionistas("Constanza Bustos", "Palermo", "Av Sante Fe 2250", "celíacos","sancor","1145362718","./assets/img/nutri9.jpg")
+    new Nutris("Sabrina Lopez Meyer", "Palermo", "Bulnes 2821 1c", "celíacos", "swiss medical", "1563291089","./assets/img/nutri1.jpg"),
+    new Nutris("Rafael Hernandez", "Belgrano", "Cuidad de la paz 2223 3a", "vegetarianos", "osde", "1523545476","./assets/img/nutri4.jpg"),
+    new Nutris("Luciano Caseres", "Caballito", "Acoyte 56 2a", "celíacos", "union personal", "1532543476","./assets/img/nutri6.jpg"),
+    new Nutris("Marina Paz Vallese", "Belgrano", "Cuidad de la paz 2222", "diabéticos", "osde", "1122333421","./assets/img/nutri2.jpg"),
+    new Nutris("Rodrigo Fernández", "Palermo", "Charcas 2342", "vegetarianos", "swiss medical", "2323321456","./assets/img/nutri7.jpg"),
+    new Nutris("Mónica Facchini", "Palermo", "Güemes 3574", "diabéticos", "osde", "1174893424","./assets/img/nutri3.jpg"),
+    new Nutris("Mariela Aronow", "Caballito", "Lavalleja 106", "vegetarianos", "union personal","2345786743","./assets/img/nutri5.jpg"),
+    new Nutris("Constanza Bustos", "Palermo", "Av Sante Fe 2250", "celíacos","sancor","1145362718","./assets/img/nutri9.jpg"),
+    new Nutris("Roberto Vidal", "Caballito", "Av. Díaz Vélez 5044", "diabéticos","osde","1145261726","./assets/img/nutri10.jpg"),
+    new Nutris("Viviana Lacher", "Palermo", "Guatemala 5648", "vegetarianos","swiss medical","1145281987","./assets/img/nutri11.jpg"),
+    new Nutris("Josefina Marcenaro", "Belgrano", "Av. Cabildo 2517", "celíacos","union personal","1154781234","./assets/img/nutri12.jpg"),
+    new NutNutrisricionistas("Marta Milikowsky", "Caballito", "Av. Acoyte 702", "vegetarianos","osde","1156452187","./assets/img/nutri13.jpg")
 ]
 console.table(cartilla);
 
 //Agrego un nuevo objeto nutricionista al array
-cartilla.push(new Nutricionistas("Carlos Javier Caire", "Palermo", "Olleros 1300", "vegetarianos", "sancor", "1198453219","./assets/img/nutri8.jpg"));
+cartilla.push(new Nutris("Carlos Javier Caire", "Palermo", "Olleros 1300", "vegetarianos", "sancor", "1198453219","./assets/img/nutri8.jpg"));
 console.table(cartilla);
 
 //Agrego metodos de busqueda
 //Evento en el boton btnTaerTodosNutris 
 let btnNutris = document.getElementById("btnTaerTodosNutris");
-btnNutris.addEventListener("click", TraerTodosNutris);
+btnNutris.addEventListener("click", ()=>{TraerTodosNutris()});
 
 function TraerTodosNutris(){
+    
     BorrarContenido();    
     let contenidoCard = document.querySelector('.section3__contenido');
-    for(Nutricionistas of cartilla){
+    for(Nutris of cartilla){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        nuevaCard.innerHTML = Nutris.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
 
 //Traer Nutris vegetarianos: creo evento en el boton y llamo a funcion que interactua con el DOM
 let btnNutrisVeg = document.getElementById("btnTraerNutrisVeg");
-btnNutrisVeg.addEventListener("click",TraerNutrisVeg);
+btnNutrisVeg.addEventListener("click",()=>{TraerNutrisVeg()});
 
 function TraerNutrisVeg(){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
     const resultado1 = cartilla.filter((el) => el.especialidad == "vegetarianos");
-    for(Nutricionistas of resultado1){
+    for(Nutris of resultado1){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        nuevaCard.innerHTML = Nutris.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
 
 //Traer Nutris celiacos: creo evento en el boton y llamo a funcion que interactua con el DOM
 let btnNutrisCel = document.getElementById("btnTraerNutrisCel");
-btnNutrisCel.addEventListener("click",TraerNutrisCel);
+btnNutrisCel.addEventListener("click",()=>{TraerNutrisCel()});
 
 function TraerNutrisCel(){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
     const resultado1 = cartilla.filter((el) => el.especialidad == "celíacos");
-    for(Nutricionistas of resultado1){
+    for(Nutris of resultado1){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        nuevaCard.innerHTML = Nutris.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
 
 //Traer Nutris diabeticos: creo evento en el boton y llamo a funcion que interactua con el DOM
 let btnNutrisDiabe = document.getElementById("btnTraerNutrisDiab");
-btnNutrisDiabe.addEventListener("click",TraerNutrisDiab);
+btnNutrisDiabe.addEventListener("click",()=>{TraerNutrisDiab()});
 
 function TraerNutrisDiab(){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
     const resultado1 = cartilla.filter((el) => el.especialidad == "diabéticos");
-    for(Nutricionistas of resultado1){
+    for(NutrisNutris of resultado1){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        nuevaCard.innerHTML = Nutris.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
@@ -249,13 +242,11 @@ function BorrarContenido(){
 }
 
 let inputBuscoNutri = document.getElementById("inputBuscarNutri");
-inputBuscoNutri.addEventListener("input", ()=>console.log(inputBuscoNutri.value));
-
-
+inputBuscoNutri.addEventListener("input", ()=>{console.log(inputBuscoNutri.value)});
 
 
 let btnBuscarNutri = document.getElementById("btnBuscarNutri");
-btnBuscarNutri.addEventListener("click", TraerNutriBuscado);
+btnBuscarNutri.addEventListener("click",()=>{TraerNutriBuscado()});
 
 function TraerNutriBuscado(){
     //Paso todo a capitalize
@@ -265,10 +256,10 @@ function TraerNutriBuscado(){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
     const resultado1 = cartilla.filter((el) => el.nombre.includes(`${upperNutri}`));
-    for(Nutricionistas of resultado1){
+    for(Nutris of resultado1){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutricionistas.crearHtml();
+        nuevaCard.innerHTML = Nutris.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }

@@ -338,6 +338,7 @@ footer {
         }
     }
     &__calorias--btnCalculo {
+        border: none;
         width: 80%;
         background-color: $color-cuaternario;
         color: $color-secundario;
@@ -817,7 +818,7 @@ footer {
     justify-content: center;
     align-items: center;
     border-radius: 10rem;
-
+    border: none;
     &:hover {
         background-color: $color-cuaternario;
         color: $color-secundario;
