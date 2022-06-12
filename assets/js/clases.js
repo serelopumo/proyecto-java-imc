@@ -1,4 +1,4 @@
- export default class Nutricionistas {
+export class Nutricionistas {
     constructor(nombre, barrio, direccion, especialidad, obrasocial, telefono,imagen) {
         this.nombre = nombre;
         this.barrio = barrio;
@@ -17,3 +17,4 @@
     }
 
 }
+

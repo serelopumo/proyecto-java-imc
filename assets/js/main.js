@@ -25,8 +25,9 @@ let resIMC;
 let resClasificacion;
 
 //declaro clases
-import Nutris from "./clases.js";
-
+import * as Nutris from "./clases.js";
+const pruebanutri = new Nutris.Nutricionistas('hola','sas','sas','sasa','aaa','aa','ssas');
+console.log(Nutris.Nutricionistas.nombre)
 //declaro funciones
 function preguntarDatos() {
     genero = parseInt(prompt("Ingrese su genero: \n Ingrese 0 si es un hombre \n Ingrese 1 si es mujer"));
@@ -151,23 +152,23 @@ function BorrarContenidoIMC(){
 
 //Creo un array llamado cartilla con los datos de los objetos nutricionistas
 const cartilla = [
-    new Nutris("Sabrina Lopez Meyer", "Palermo", "Bulnes 2821 1c", "celíacos", "swiss medical", "1563291089","./assets/img/nutri1.jpg"),
-    new Nutris("Rafael Hernandez", "Belgrano", "Cuidad de la paz 2223 3a", "vegetarianos", "osde", "1523545476","./assets/img/nutri4.jpg"),
-    new Nutris("Luciano Caseres", "Caballito", "Acoyte 56 2a", "celíacos", "union personal", "1532543476","./assets/img/nutri6.jpg"),
-    new Nutris("Marina Paz Vallese", "Belgrano", "Cuidad de la paz 2222", "diabéticos", "osde", "1122333421","./assets/img/nutri2.jpg"),
-    new Nutris("Rodrigo Fernández", "Palermo", "Charcas 2342", "vegetarianos", "swiss medical", "2323321456","./assets/img/nutri7.jpg"),
-    new Nutris("Mónica Facchini", "Palermo", "Güemes 3574", "diabéticos", "osde", "1174893424","./assets/img/nutri3.jpg"),
-    new Nutris("Mariela Aronow", "Caballito", "Lavalleja 106", "vegetarianos", "union personal","2345786743","./assets/img/nutri5.jpg"),
-    new Nutris("Constanza Bustos", "Palermo", "Av Sante Fe 2250", "celíacos","sancor","1145362718","./assets/img/nutri9.jpg"),
-    new Nutris("Roberto Vidal", "Caballito", "Av. Díaz Vélez 5044", "diabéticos","osde","1145261726","./assets/img/nutri10.jpg"),
-    new Nutris("Viviana Lacher", "Palermo", "Guatemala 5648", "vegetarianos","swiss medical","1145281987","./assets/img/nutri11.jpg"),
-    new Nutris("Josefina Marcenaro", "Belgrano", "Av. Cabildo 2517", "celíacos","union personal","1154781234","./assets/img/nutri12.jpg"),
-    new NutNutrisricionistas("Marta Milikowsky", "Caballito", "Av. Acoyte 702", "vegetarianos","osde","1156452187","./assets/img/nutri13.jpg")
+    new Nutris.Nutricionistas("Sabrina Lopez Meyer", "Palermo", "Bulnes 2821 1c", "celíacos", "swiss medical", "1563291089","./assets/img/nutri1.jpg"),
+    new Nutris.Nutricionistas("Rafael Hernandez", "Belgrano", "Cuidad de la paz 2223 3a", "vegetarianos", "osde", "1523545476","./assets/img/nutri4.jpg"),
+    new Nutris.Nutricionistas("Luciano Caseres", "Caballito", "Acoyte 56 2a", "celíacos", "union personal", "1532543476","./assets/img/nutri6.jpg"),
+    new Nutris.Nutricionistas("Marina Paz Vallese", "Belgrano", "Cuidad de la paz 2222", "diabéticos", "osde", "1122333421","./assets/img/nutri2.jpg"),
+    new Nutris.Nutricionistas("Rodrigo Fernández", "Palermo", "Charcas 2342", "vegetarianos", "swiss medical", "2323321456","./assets/img/nutri7.jpg"),
+    new Nutris.Nutricionistas("Mónica Facchini", "Palermo", "Güemes 3574", "diabéticos", "osde", "1174893424","./assets/img/nutri3.jpg"),
+    new Nutris.Nutricionistas("Mariela Aronow", "Caballito", "Lavalleja 106", "vegetarianos", "union personal","2345786743","./assets/img/nutri5.jpg"),
+    new Nutris.Nutricionistas("Constanza Bustos", "Palermo", "Av Sante Fe 2250", "celíacos","sancor","1145362718","./assets/img/nutri9.jpg"),
+    new Nutris.Nutricionistas("Roberto Vidal", "Caballito", "Av. Díaz Vélez 5044", "diabéticos","osde","1145261726","./assets/img/nutri10.jpg"),
+    new Nutris.Nutricionistas("Viviana Lacher", "Palermo", "Guatemala 5648", "vegetarianos","swiss medical","1145281987","./assets/img/nutri11.jpg"),
+    new Nutris.Nutricionistas("Josefina Marcenaro", "Belgrano", "Av. Cabildo 2517", "celíacos","union personal","1154781234","./assets/img/nutri12.jpg"),
+    new Nutris.Nutricionistas("Marta Milikowsky", "Caballito", "Av. Acoyte 702", "vegetarianos","osde","1156452187","./assets/img/nutri13.jpg")
 ]
 console.table(cartilla);
 
 //Agrego un nuevo objeto nutricionista al array
-cartilla.push(new Nutris("Carlos Javier Caire", "Palermo", "Olleros 1300", "vegetarianos", "sancor", "1198453219","./assets/img/nutri8.jpg"));
+cartilla.push(new Nutris.Nutricionistas("Carlos Javier Caire", "Palermo", "Olleros 1300", "vegetarianos", "sancor", "1198453219","./assets/img/nutri8.jpg"));
 console.table(cartilla);
 
 //Agrego metodos de busqueda
@@ -179,10 +180,10 @@ function TraerTodosNutris(){
     
     BorrarContenido();    
     let contenidoCard = document.querySelector('.section3__contenido');
-    for(Nutris of cartilla){
+    for(Nutris.Nutricionistas of cartilla){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutris.crearHtml();
+        nuevaCard.innerHTML = Nutris.Nutricionistas.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
@@ -195,10 +196,10 @@ function TraerNutrisVeg(){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
     const resultado1 = cartilla.filter((el) => el.especialidad == "vegetarianos");
-    for(Nutris of resultado1){
+    for(Nutris.Nutricionistas of resultado1){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutris.crearHtml();
+        nuevaCard.innerHTML = Nutris.Nutricionistas.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
@@ -211,10 +212,10 @@ function TraerNutrisCel(){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
     const resultado1 = cartilla.filter((el) => el.especialidad == "celíacos");
-    for(Nutris of resultado1){
+    for(Nutris.Nutricionistas of resultado1){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutris.crearHtml();
+        nuevaCard.innerHTML = Nutris.Nutricionistas.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
@@ -227,10 +228,10 @@ function TraerNutrisDiab(){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
     const resultado1 = cartilla.filter((el) => el.especialidad == "diabéticos");
-    for(NutrisNutris of resultado1){
+    for(Nutris.Nutricionistas of resultado1){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutris.crearHtml();
+        nuevaCard.innerHTML = Nutris.Nutricionistas.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
@@ -256,10 +257,11 @@ function TraerNutriBuscado(){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
     const resultado1 = cartilla.filter((el) => el.nombre.includes(`${upperNutri}`));
-    for(Nutris of resultado1){
+    for(Nutris.Nutricionistas of resultado1){
         let nuevaCard = document.createElement('div')
         nuevaCard.className = "section3__contenido__card";
-        nuevaCard.innerHTML = Nutris.crearHtml();
+        nuevaCard.innerHTML = Nutris.Nutricionistas.crearHtml();
         contenidoCard.append(nuevaCard);
     }
 }
+
