@@ -1,3 +1,10 @@
+/*Para el calculo del IMC necesito el peso y la talla ya que:
+IMC = peso / talla^2
+La talla debe estar en metros
+Luego de calcular el IMC veo a que categoria IMC corresponde segun IMC
+*/
+
+
 let pesoIMC;
 let tallaIMC;
 let resIMC;
@@ -43,6 +50,10 @@ export function ClickenIMC(){
 
     pesoIMC = parseInt(inputIMCpeso.value);
     tallaIMC = parseInt(inputIMCaltura.value);
+
+    //Guardo en el local storage los datos del IMC que cargo el usuario
+    localStorage.setItem('peso', pesoIMC);
+    localStorage.setItem('altura', tallaIMC);
 
     if ((!pesoIMC) || (!tallaIMC)) {
         let contenidoIMC = document.querySelector('.section1__resultadoIMC');

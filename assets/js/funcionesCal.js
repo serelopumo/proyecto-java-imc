@@ -1,3 +1,16 @@
+/*Calculo del requerimiento energetico diario/calorias diarias recomendadas.
+Lo obtengo por la Fórmula de Mifflin-St Jeor y luego le sumo el porcentaje de Actividad
+Fisica. 
+Para Hombres GER(kcal/dia) = (10 x peso(kg)) + [6,25 x T(cm)] - [5 x E(años)] + 5
+Para Mujeres GER(kcal/dia) = (10 x peso(kg)) + [6,25 x T(cm)] - [5 x E(años)] - 161
+Porcentaje que debe adicionarse segun Actividad Fisica
+Sedentaria---------------------------30%
+Moderada o Poco Activa --------------50%
+Activa o moderadamente activa -------75%
+Muy Activa o Intensa ----------------100%
+GER + AF = GED
+*/
+
 //declaro variables
 let resultadoFormula;
 

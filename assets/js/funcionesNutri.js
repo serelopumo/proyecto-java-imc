@@ -1,3 +1,7 @@
+/*
+Traigo Nutricionistas por especialidad o por el buscador
+*/
+
 export function TraerTodosNutris(cartilla,Nutricionistas){
     BorrarContenido();    
     let contenidoCard = document.querySelector('.section3__contenido');
