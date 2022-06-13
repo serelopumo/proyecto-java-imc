@@ -60,7 +60,7 @@
                                 ¿Cuánto mides?
                             </div>
                             <div class="section1__calorias--altura--input">
-                                <input id="inputIMCaltura" placeholder="160" maxlength="3" min="1" type="tel" >
+                                <input id="inputIMCaltura" placeholder="160" maxlength="3" min="1" type="tel">
                                 <h4>cm</h4>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
             <section id="calorias" class="section2">
                 <h2>Calculador de calorias diarias recomendadas</h2>
                 <h4>Para el cálculo debes ingresar los siguientes datos</h4>
-                <div class="section2__contenido">
+                <form id="formularioCalorias" class="section2__contenido">
                     <div class="section2__calorias--genero">
                         <div class="section2__calorias--genero--titulo">
                             ¿Cuál es tu género?
@@ -98,15 +98,13 @@
                         <div class="section2__calorias--genero--img">
                             <div class="section2__calorias--genero--img--hombre">
                                 <img class="imagenes-calculadora" src="./assets/img/cuadrohombre.png" alt="">
-                                <button class="btngenero">
-                                    Hombre
-                                </button>
+                                <input type="button" id="btngeneroH" class="btngenero" value="Hombre">
+                                </input>
                             </div>
                             <div class="section2__calorias--genero--img--mujer">
                                 <img class="imagenes-calculadora" src="./assets/img/cuadromujer.png" alt="">
-                                <div class="btngenero">
-                                    Mujer
-                                </div>
+                                <input type="button" id="btngeneroM" class="btngenero" value="Mujer">
+                                </input>
                             </div>
                         </div>
                     </div>
@@ -115,7 +113,7 @@
                             ¿Cuántos años tienes?
                         </div>
                         <div class="section2__calorias--edad--input">
-                            <input placeholder="21" maxlength="3" type="tel" min="1">
+                            <input id="inputCalEdad" placeholder="21" maxlength="3" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             <h4>años</h4>
                         </div>
                     </div>
@@ -124,7 +122,7 @@
                             ¿Cuánto mides?
                         </div>
                         <div class="section2__calorias--altura--input">
-                            <input placeholder="160" maxlength="3" type="tel">
+                            <input id="inputCalAltura" placeholder="160" maxlength="3" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             <h4>cm</h4>
                         </div>
                     </div>
@@ -133,7 +131,7 @@
                             ¿Cuánto pesas?
                         </div>
                         <div class="section2__calorias--peso--input">
-                            <input placeholder="60" maxlength="3" type="tel">
+                            <input id="inputCalPeso" placeholder="60" maxlength="3" type="number"oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             <h4>kg</h4>
                         </div>
                     </div>
@@ -144,80 +142,88 @@
                         <div class="section2__calorias--actividadfisica--contenido">
                             <div class="section2__calorias--actividadfisica--contenido1">
                                 <img class="img-actividadfisica" src="./assets/img/actividadfisica1.png" alt="">
-                                <div class="section2__calorias--actividadfisica--contenido1--btn">Sedentario</div>
+                                <input id="btnCalAf1" type="button" class="section2__calorias--actividadfisica--contenido1--btn" value="Sedentario"></input>
                                 <h4>Personas que están la mayor tiempo sentadas en ambientes cerrados</h4>
                             </div>
                             <div class="section2__calorias--actividadfisica--contenido2">
                                 <img class="img-actividadfisica2" src="./assets/img/actividadfisica2.png" alt="">
-                                <div class="section2__calorias--actividadfisica--contenido2--btn">Moderado o poco Activo
-                                </div>
+                                <input id="btnCalAf2" type="button" class="section2__calorias--actividadfisica--contenido2--btn" value="Moderado o poco Activo">
+                                </input>
                                 <h4>Sobre todo de pie (ej. cajero, profesor)</h4>
                             </div>
                             <div class="section2__calorias--actividadfisica--contenido3">
                                 <img class="img-actividadfisica2" src="./assets/img/actividadfisica3.png" alt="">
-                                <div class="section2__calorias--actividadfisica--contenido2--btn">Activo</div>
+                                <input id="btnCalAf3" type="button" class="section2__calorias--actividadfisica--contenido2--btn" value="Activo"></input>
                                 <h4>Sobre todo andando (ej. vendedor, camarero)</h4>
                             </div>
                             <div class="section2__calorias--actividadfisica--contenido4">
                                 <img class="img-actividadfisica2" src="./assets/img/actividadfisica4.png" alt="">
-                                <div class="section2__calorias--actividadfisica--contenido2--btn">Muy activo</div>
+                                <input id="btnCalAf4" type="button" class="section2__calorias--actividadfisica--contenido2--btn" value="Muy activo"></input>
                                 <h4>Trabajos físicos (ej. construcción)</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="section2__calorias--btnCalculo">
-                        Calcula tus calorias diarias recomendadas
+                    <input id="btnCalculoCalorias" type="submit" class="section2__calorias--btnCalculo" value="Calcula tus calorias diarias recomendadas">
+                    </input>
+                    <div class="section2__resultadoCalorias">
+                        <!--Agrego resultado desde js-->
                     </div>
-                </div>
+                </form>
             </section>
             <section id="nutris" class="section3">
                 <h2>Lista de Nutricionistas</h2>
                 <form class="d-flex" role="search">
-                    <input id="inputBuscarNutri" class="form-control me-2" type="search" placeholder="Nutricionista" aria-label="Search">
+                    <input id="inputBuscarNutri" class="form-control me-2" type="search" placeholder="Nutricionista"
+                        aria-label="Search">
                     <button id="btnBuscarNutri" class="btn btn-outline-success" type="submit">Buscar</button>
-                  </form>
+                </form>
                 <div class="section3__caja">
                     <div id="list-example" class="list-group">
-                        <a id="btnTaerTodosNutris" class="list-group-item list-group-item-action" href="#list-item-1">Todos los nutricionistas</a>
-                        <a id="btnTraerNutrisVeg" class="list-group-item list-group-item-action" href="#list-item-2">Vegetarianos</a>
-                        <a id="btnTraerNutrisCel" class="list-group-item list-group-item-action" href="#list-item-3">Celíacos</a>
-                        <a id="btnTraerNutrisDiab" class="list-group-item list-group-item-action" href="#list-item-4">Diabéticos</a>
-                      </div>
-                      <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="section3__contenido scrollspy-example" tabindex="0">
+                        <a id="btnTaerTodosNutris" class="list-group-item list-group-item-action"
+                            href="#list-item-1">Todos los nutricionistas</a>
+                        <a id="btnTraerNutrisVeg" class="list-group-item list-group-item-action"
+                            href="#list-item-2">Vegetarianos</a>
+                        <a id="btnTraerNutrisCel" class="list-group-item list-group-item-action"
+                            href="#list-item-3">Celíacos</a>
+                        <a id="btnTraerNutrisDiab" class="list-group-item list-group-item-action"
+                            href="#list-item-4">Diabéticos</a>
+                    </div>
+                    <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+                        class="section3__contenido scrollspy-example" tabindex="0">
                         <!-- Agrego contenido con js con la clase section3__contenido-->
-                      </div>
-                </section>
-                <section id="recetas" class="section4">
-                    <h2>Buscador de Recetas</h2>
-                </section>
-                </div>
-                
-        </main>
-        <footer>
-            <div class="footerDatos">
-                <div class="footerDatos__resources">
-                    <p>Resources</p>
-                    <a href="#">FAQs</a>
-                    <a href="#">Deliveries</a>
-                    <a href="#">Wholesale</a>
-                    <a href="#">Sustainability</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
-                </div>
-                <div class="footerDatos__connect">
-                    <div class="footerDatos__connect--redes">
-                        <p>Connect</p>
-                        <a href="https://www.instagram.com/sere.lopumo/?hl=es-la">Instagram</a>
-                        <a href="https://www.facebook.com/sere.lopumo/">Facebook</a>
                     </div>
-                    <div class="footerDatos__connect--contact">
-                        <p>Contact</p>
-                        <a href="mailto:serelopumo97@gmail.com">serelopumo97<br>@gmail.com</a>
-                    </div>
+            </section>
+            <section id="recetas" class="section4">
+                <h2>Buscador de Recetas</h2>
+            </section>
+    </div>
+
+    </main>
+    <footer>
+        <div class="footerDatos">
+            <div class="footerDatos__resources">
+                <p>Resources</p>
+                <a href="#">FAQs</a>
+                <a href="#">Deliveries</a>
+                <a href="#">Wholesale</a>
+                <a href="#">Sustainability</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+            <div class="footerDatos__connect">
+                <div class="footerDatos__connect--redes">
+                    <p>Connect</p>
+                    <a href="https://www.instagram.com/sere.lopumo/?hl=es-la">Instagram</a>
+                    <a href="https://www.facebook.com/sere.lopumo/">Facebook</a>
+                </div>
+                <div class="footerDatos__connect--contact">
+                    <p>Contact</p>
+                    <a href="mailto:serelopumo97@gmail.com">serelopumo97<br>@gmail.com</a>
                 </div>
             </div>
-            <p>Site development by <a href="https://github.com/serelopumo"> Sere Lopumo</a>.</p>
-        </footer>
+        </div>
+        <p>Site development by <a href="https://github.com/serelopumo"> Sere Lopumo</a>.</p>
+    </footer>
     </div>
 
 </body>

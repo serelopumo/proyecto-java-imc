@@ -348,6 +348,7 @@ footer {
         justify-content: center;
         align-items: center;
         border-radius: 10rem;
+
         &:hover {
             background-color: $color-terciario;
             color: $color-secundario;
@@ -355,7 +356,7 @@ footer {
         }
     }
     &__resultadoIMC{
-       width: 60%;
+       width: 100%;
 
         &--datos{
             width: 100%;
@@ -381,7 +382,6 @@ footer {
 /*Inicia la seccion de Calculo calorias diarias*/
 .section2 {
     background-color: $color-primario;
-    height: 300rem;
     color: $color-cuaternario;
     display: flex;
     flex-direction: column;
@@ -390,6 +390,8 @@ footer {
     justify-content: flex-start;
     text-align: center;
     width: 100%;
+    height: auto;
+    padding-bottom: 5em;
 
     & h2 {
         font-size: 3rem;
@@ -409,6 +411,7 @@ footer {
         justify-content: center;
         align-items: center;
         gap: 8em;
+        height: auto;
         flex-flow: row wrap;
     }
 
@@ -662,8 +665,15 @@ footer {
                 justify-content: center;
                 align-items: center;
                 border-radius: 10rem;
+                color: $color-cuaternario;
+                border: none;
 
                 &:hover {
+                    background-color: $color-cuaternario;
+                    color: $color-secundario;
+                    cursor: pointer;
+                }
+                &:focus {
                     background-color: $color-cuaternario;
                     color: $color-secundario;
                     cursor: pointer;
@@ -699,8 +709,15 @@ footer {
                 justify-content: center;
                 align-items: center;
                 border-radius: 10rem;
+                color: $color-cuaternario;
+                border: none;
 
                 &:hover {
+                    background-color: $color-cuaternario;
+                    color: $color-secundario;
+                    cursor: pointer;
+                }
+                &:focus {
                     background-color: $color-cuaternario;
                     color: $color-secundario;
                     cursor: pointer;
@@ -783,6 +800,7 @@ footer {
         }
     }
     &__calorias--btnCalculo {
+        border: none;
         width: 80%;
         background-color: $color-terciario;
         color: $color-secundario;
@@ -798,6 +816,23 @@ footer {
             cursor: pointer;
         }
     }
+    &__resultadoCalorias{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+         &--datos{
+             width: 100%;
+             min-height: 20rem;
+             display: flex;
+             flex-direction: column;
+             gap:2em;
+             justify-content: center;
+             align-items: center;
+             background-color: $color-cuaternario;
+             color: $color-secundario;
+         }
+     }
 }
 
 .img-actividadfisica {
@@ -810,7 +845,9 @@ footer {
 }
 
 .btngenero {
+    border: none;
     width: 100%;
+    color: $color-cuaternario;
     background-color: $color-primario;
     height: 5rem;
     font-size: 1.8rem;
@@ -823,6 +860,10 @@ footer {
         background-color: $color-cuaternario;
         color: $color-secundario;
         cursor: pointer;
+    }
+    &:focus{
+        background-color: $color-cuaternario;
+        color: $color-secundario;
     }
 }
 
@@ -980,9 +1021,6 @@ footer {
         width: 40%;
     }
     /*Seccion calcular calorias diarias*/
-    .section2 {
-        height: 200rem;
-    }
 
     .section2 h2 {
         font-size: 6rem;
