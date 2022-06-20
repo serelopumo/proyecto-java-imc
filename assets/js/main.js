@@ -205,4 +205,33 @@ nuevoPlan3.className = "section5__tarjetas--card3";
 nuevoPlan3.innerHTML = Nutris.TraerPlanes3();
 contenidoPlanes3.append(nuevoPlan3);
 
+//Agrego alerts en los botons de comprar Planes
+let btnCompraPlan = document.querySelectorAll(".btnComprarPlan");
 
+btnCompraPlan.forEach(element => {
+    element.addEventListener('click', () => {
+        Swal.fire({
+            width:'50%',
+            heightAuto:true,
+            title: '¿Estás seguro que deseas continuar con la compra?',
+            text: "Empezá tu vida saludable con nuestros planes!!!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#809249ff',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'LISTA TU COMPRA',
+                'Tu plan ya fue confirmado',
+                'success'
+              )
+            }
+          })
+
+
+
+    })
+})

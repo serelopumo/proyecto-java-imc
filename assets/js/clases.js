@@ -60,7 +60,7 @@ export function TraerPlanes (){
         <li>${descripcion[4]}</li>
         <li>${descripcion[5]}</li>
       </ul>
-    <button class="btnComprarPlan">BUY NOW</button>`
+    <button class="btnComprarPlan">COMPRAR</button>`
 }
 
 export function TraerPlanes2 (){
@@ -76,7 +76,7 @@ export function TraerPlanes2 (){
         <li>${descripcion2[6]}</li>
         <li>${descripcion2[7]}</li>
       </ul>
-    <button class="btnComprarPlan">BUY NOW</button>`
+    <button class="btnComprarPlan">COMPRAR</button>`
 }
 
 
@@ -92,5 +92,5 @@ export function TraerPlanes3 (){
         <li>${descripcion3[5]}</li>
         <li>${descripcion3[6]}</li>
       </ul>
-    <button class="btnComprarPlan">BUY NOW</button>`
+    <button class="btnComprarPlan">COMPRAR</button>`
 }
