@@ -20,6 +20,7 @@ export function CalcularCaloriasDiarias(genero, edad, talla, peso, actividadFisi
     genero = parseInt(genero);
     talla = parseInt(talla);
     actividadFisica = parseInt(actividadFisica);
+    console.log(`peso:${peso}, genero:${genero}, talla:${talla}, actividad fisica:${actividadFisica}`);
     if ((!peso) || (!genero) || (!talla) || (!actividadFisica)) {
         let contenidoCal = document.querySelector('.section2__resultadoCalorias');
         let resultadoCal = document.createElement('div')
@@ -51,19 +52,19 @@ export function MostrarCaloriasDiar() {
 }
 
 export function calcularFormula(genero, edad, talla, peso, actividadFisica) {
-    if (genero == 0) {
-        resultadoFormula = (10 * peso) + (6.25 * talla) - (5 * edad) + 5;
-    } else if (genero == 1) {
-        resultadoFormula = (10 * peso) + (6.25 * talla) - (5 * edad) - 161;
-    }
-    switch (actividadFisica) {
-        case 0:
+    //Aplico operador ternario
+    
+    resultadoFormula = (genero == 1);
+    resultadoFormula ? resultadoFormula = ((10 * peso) + (6.25 * talla) - (5 * edad) + 5 ) : resultadoFormula = ((10 * peso) + (6.25 * talla) - (5 * edad) - 161);
+
+        switch (actividadFisica) {
+        case 1:
             resultadoFormula = resultadoFormula + (resultadoFormula * 0.3);
             break;
-        case 1:
+        case 2:
             resultadoFormula = resultadoFormula + (resultadoFormula * 0.5);
             break;
-        case 2:
+        case 3:
             resultadoFormula = resultadoFormula + (resultadoFormula * 0.75);
             break;
         default:

@@ -75,3 +75,4 @@ export function TraerNutriBuscado(cartilla,Nutricionistas){
         contenidoCard.append(nuevaCard);
     }
 }
+

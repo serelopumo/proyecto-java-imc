@@ -20,19 +20,10 @@ export function ErrorValidacionIMC(){
 }
 
 export const categoriaIMC = () => {
-    if (resIMC < 18.5) {
-        resClasificacion = "Bajo peso"
-    } else if (resIMC < 25) {
-        resClasificacion = "Normopeso / Peso saludable"
-    } else if (resIMC < 30) {
-        resClasificacion = "Sobrepeso"
-    } else if (resIMC < 35) {
-        resClasificacion = "Obeso grado 1"
-    } else if (resIMC < 40) {
-        resClasificacion = "Obeso grado 2"
-    } else {
-        resClasificacion = "Obeso grado 3"
-    }
+    //Aplico operador ternario
+    resClasificacion = resIMC < 18.5 ? "Bajo peso" :  resIMC < 25 ? 
+    "Normopeso / Peso saludable" : resIMC < 30 ? "Sobrepeso" : resIMC < 35 ?
+    "Obeso grado 1" : resIMC < 40 ? "Obeso grado 2" : "Obeso grado 3";
 }
 
 export function MostrarIMC(){

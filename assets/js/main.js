@@ -22,13 +22,13 @@ import * as funcionesCal from './funcionesCal.js';
 //Evento en btn genero
 let btnObtenerGenero = document.getElementById("btngeneroH");
 btnObtenerGenero.addEventListener('focus', () => {
-    genero = 0;
+    genero = 1;
     console.log(genero)
 })
 
 let btnObtenerGeneroM = document.getElementById("btngeneroM");
 btnObtenerGeneroM.addEventListener('focus', () => {
-    genero = 1;
+    genero = 2;
     console.log(genero)
 })
 
@@ -56,33 +56,33 @@ inputPeso.addEventListener("input", () => {
 //Evento en btn actividad fisica
 let btnAcf1 = document.getElementById("btnCalAf1");
 btnAcf1.addEventListener("focus", () => {
-    actividadFisica = 0;
+    actividadFisica = 1;
     console.log(actividadFisica)
 })
 
 let btnAcf2 = document.getElementById("btnCalAf2");
 btnAcf2.addEventListener("focus", () => {
-    actividadFisica = 1;
+    actividadFisica = 2;
     console.log(actividadFisica)
 })
 
 let btnAcf3 = document.getElementById("btnCalAf3");
 btnAcf3.addEventListener("focus", () => {
-    actividadFisica = 2;
+    actividadFisica = 3;
     console.log(actividadFisica)
 })
 
 let btnAcf4 = document.getElementById("btnCalAf4");
 btnAcf4.addEventListener("focus", () => {
-    actividadFisica = 3;
+    actividadFisica = 4;
     console.log(actividadFisica)
 })
 
 //Evento en btn calculo calorias diarias
 let btnCalculo = document.getElementById("formularioCalorias");
-btnCalculo.addEventListener("submit", (e)=>{
+btnCalculo.addEventListener("submit", (e) => {
     e.preventDefault();
-    funcionesCal.CalcularCaloriasDiarias(genero,edad,talla,peso,actividadFisica)
+    funcionesCal.CalcularCaloriasDiarias(genero, edad, talla, peso, actividadFisica)
 })
 
 
@@ -110,7 +110,7 @@ btnCalcularOtroIMC.addEventListener('click', () => {
 ------------------------------------------------------------------------------------------
  */
 //Creo un array llamado cartilla con los datos de los objetos nutricionistas
-const cartilla = [
+let cartilla = [
     new Nutris.Nutricionistas("Sabrina Lopez Meyer", "Palermo", "Bulnes 2821 1c", "celíacos", "swiss medical", "1563291089", "./assets/img/nutri1.jpg"),
     new Nutris.Nutricionistas("Rafael Hernandez", "Belgrano", "Cuidad de la paz 2223 3a", "vegetarianos", "osde", "1523545476", "./assets/img/nutri4.jpg"),
     new Nutris.Nutricionistas("Luciano Caseres", "Caballito", "Acoyte 56 2a", "celíacos", "union personal", "1532543476", "./assets/img/nutri6.jpg"),
@@ -121,13 +121,18 @@ const cartilla = [
     new Nutris.Nutricionistas("Constanza Bustos", "Palermo", "Av Sante Fe 2250", "celíacos", "sancor", "1145362718", "./assets/img/nutri9.jpg"),
     new Nutris.Nutricionistas("Roberto Vidal", "Caballito", "Av. Díaz Vélez 5044", "diabéticos", "osde", "1145261726", "./assets/img/nutri10.jpg"),
     new Nutris.Nutricionistas("Viviana Lacher", "Palermo", "Guatemala 5648", "vegetarianos", "swiss medical", "1145281987", "./assets/img/nutri11.jpg"),
-    new Nutris.Nutricionistas("Josefina Marcenaro", "Belgrano", "Av. Cabildo 2517", "celíacos", "union personal", "1154781234", "./assets/img/nutri12.jpg"),
-    new Nutris.Nutricionistas("Marta Milikowsky", "Caballito", "Av. Acoyte 702", "vegetarianos", "osde", "1156452187", "./assets/img/nutri13.jpg")
+    new Nutris.Nutricionistas("Josefina Marcenaro", "Belgrano", "Av. Cabildo 2517", "celíacos", "union personal", "1154781234", "./assets/img/nutri12.jpg")
 ]
 
 //Agrego un nuevo objeto nutricionista al array
 cartilla.push(new Nutris.Nutricionistas("Carlos Javier Caire", "Palermo", "Olleros 1300", "vegetarianos", "sancor", "1198453219", "./assets/img/nutri8.jpg"));
-console.table(cartilla);
+
+//Utilizo spread de array para agregar un nutricionista
+function agregarNutri(nombre, barrio, direccion, especialidad, obrasocial, telefono, imagen) {
+    const nutri = new Nutris.Nutricionistas(nombre, barrio, direccion, especialidad, obrasocial, telefono, imagen);
+    cartilla = [...cartilla, nutri];
+}
+agregarNutri("Marta Milikowsky", "Caballito", "Av. Acoyte 702", "vegetarianos", "osde", "1156452187", "./assets/img/nutri13.jpg");
 
 //Agrego metodos de busqueda
 //Evento en el boton btnTaerTodosNutris 
@@ -170,3 +175,34 @@ btnBuscarNutri.addEventListener("click", (e) => {
 --------------------------------------RECETAS---------------------------------------------
 ------------------------------------------------------------------------------------------
  */
+
+
+
+
+/*
+------------------------------------------------------------------------------------------
+--------------------------------------PLANES----------------------------------------------
+------------------------------------------------------------------------------------------
+ */
+//Plan1
+let contenidoPlanes = document.getElementById('tarjetasPlanes');
+let nuevoPlan = document.createElement('div')
+nuevoPlan.className = "section5__tarjetas--card1";
+nuevoPlan.innerHTML = Nutris.TraerPlanes();
+contenidoPlanes.append(nuevoPlan);
+
+//Plan2
+let contenidoPlanes2 = document.getElementById('tarjetasPlanes');
+let nuevoPlan2 = document.createElement('div')
+nuevoPlan2.className = "section5__tarjetas--card2";
+nuevoPlan2.innerHTML = Nutris.TraerPlanes2();
+contenidoPlanes2.append(nuevoPlan2);
+
+//Plan3
+let contenidoPlanes3 = document.getElementById('tarjetasPlanes');
+let nuevoPlan3 = document.createElement('div')
+nuevoPlan3.className = "section5__tarjetas--card3";
+nuevoPlan3.innerHTML = Nutris.TraerPlanes3();
+contenidoPlanes3.append(nuevoPlan3);
+
+

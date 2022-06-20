@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap");
 * {
   margin: 0;
@@ -808,6 +809,134 @@ footer {
     display: flex;
     justify-content: center; }
 
+.section5 {
+  background-color: #f7f1e2ff;
+  height: auto;
+  padding-top: 2em;
+  color: #809249ff;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+  text-align: center;
+  gap: 5em; }
+  .section5 h2 {
+    font-size: 3rem;
+    padding-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+  .section5__tarjetas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    height: auto;
+    width: 100%;
+    padding-bottom: 5em; }
+    .section5__tarjetas--card1 {
+      width: 25%;
+      background-color: #809249ff;
+      color: #f7f1e2ff;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5em;
+      padding-bottom: 2em;
+      padding-top: 2em; }
+      .section5__tarjetas--card1 h3 {
+        font-size: 2.5rem; }
+      .section5__tarjetas--card1 h4 {
+        font-size: 2rem; }
+      .section5__tarjetas--card1 ul {
+        font-size: 1.5rem;
+        list-style: none; }
+      .section5__tarjetas--card1 ul li:before {
+        content: '✓'; }
+      .section5__tarjetas--card1 button {
+        width: 80%;
+        font-size: 1.5rem;
+        background-color: #f7f1e2ff;
+        color: #809249ff;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3em;
+        border-radius: 2%; }
+        .section5__tarjetas--card1 button:hover {
+          opacity: 90%; }
+    .section5__tarjetas--card2 {
+      width: 25%;
+      background-color: #809249ff;
+      color: #f7f1e2ff;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5em;
+      padding-bottom: 2em;
+      padding-top: 2em; }
+      .section5__tarjetas--card2 h3 {
+        font-size: 2.5rem; }
+      .section5__tarjetas--card2 h4 {
+        font-size: 2rem; }
+      .section5__tarjetas--card2 ul {
+        font-size: 1.5rem;
+        list-style: none; }
+      .section5__tarjetas--card2 ul li:before {
+        content: '✓'; }
+      .section5__tarjetas--card2 button {
+        width: 80%;
+        font-size: 1.5rem;
+        background-color: #f7f1e2ff;
+        color: #809249ff;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3em;
+        border-radius: 2%; }
+        .section5__tarjetas--card2 button:hover {
+          opacity: 90%; }
+    .section5__tarjetas--card3 {
+      width: 25%;
+      background-color: #809249ff;
+      color: #f7f1e2ff;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5em;
+      padding-bottom: 2em;
+      padding-top: 2em; }
+      .section5__tarjetas--card3 h3 {
+        font-size: 2.5rem; }
+      .section5__tarjetas--card3 h4 {
+        font-size: 2rem; }
+      .section5__tarjetas--card3 ul {
+        font-size: 1.5rem;
+        list-style: none; }
+      .section5__tarjetas--card3 ul li:before {
+        content: '✓'; }
+      .section5__tarjetas--card3 button {
+        width: 80%;
+        font-size: 1.5rem;
+        background-color: #f7f1e2ff;
+        color: #809249ff;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3em;
+        border-radius: 2%; }
+        .section5__tarjetas--card3 button:hover {
+          opacity: 90%; }
+
 /*Vista desktop*/
 @media only screen and (min-width: 992px) {
   /*Footer*/
@@ -871,4 +1000,7 @@ footer {
     width: 40%; }
   /*Seccion Recetas*/
   .section4 h2 {
+    font-size: 6rem; }
+  /*Seccion Planes*/
+  .section5 h2 {
     font-size: 6rem; } }

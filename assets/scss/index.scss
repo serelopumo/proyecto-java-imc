@@ -991,6 +991,166 @@ footer {
         justify-content: center;
     }
 }
+.section5 {
+    background-color: $color-cuaternario;
+    height: auto;
+    padding-top: 2em;
+    color: $color-primario;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    text-align: center;
+    gap:5em;
+
+    & h2 {
+        font-size: 3rem;
+        padding-top: 2em;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__tarjetas{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:2em;
+        height: auto;
+        width: 100%;
+        padding-bottom: 5em;
+
+        &--card1{
+            width: 25%;
+            background-color: #809249ff;
+            color: $color-cuaternario;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:1.5em;
+            padding-bottom: 2em;
+            padding-top: 2em;
+            
+            h3{
+                font-size: 2.5rem;
+            }
+            h4{
+                font-size: 2rem;
+            }
+            ul{
+                font-size: 1.5rem;
+                list-style: none;
+            }
+            ul li:before {
+                content: '✓';
+              }
+            button{
+                width: 80%;
+                font-size: 1.5rem;
+                background-color: $color-cuaternario;
+                color: $color-primario;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 3em;
+                border-radius: 2%;
+
+                &:hover{
+                   opacity: 90%;
+                }
+            }
+        }
+        &--card2{
+            width: 25%;
+            background-color: #809249ff;
+            color: $color-cuaternario;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:1.5em;
+            padding-bottom: 2em;
+            padding-top: 2em;
+
+            h3{
+                font-size: 2.5rem;
+            }
+            h4{
+                font-size: 2rem;
+            }
+            ul{
+                font-size: 1.5rem;
+                list-style: none;
+            }
+            ul li:before {
+                content: '✓';
+              }
+            button{
+                width: 80%;
+                font-size: 1.5rem;
+                background-color: $color-cuaternario;
+                color: $color-primario;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 3em;
+                border-radius: 2%;
+
+                &:hover{
+                   opacity: 90%;
+                }
+            }
+        }
+        &--card3{
+            width: 25%;
+            background-color: #809249ff;
+            color: $color-cuaternario;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:1.5em;
+            padding-bottom: 2em;
+            padding-top: 2em;
+
+            h3{
+                font-size: 2.5rem;
+            }
+            h4{
+                font-size: 2rem;
+            }
+            ul{
+                font-size: 1.5rem;
+                list-style: none;
+            }
+            ul li:before {
+                content: '✓';
+              }
+            button{
+                width: 80%;
+                font-size: 1.5rem;
+                background-color: $color-cuaternario;
+                color: $color-primario;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 3em;
+                border-radius: 2%;
+
+                &:hover{
+                   opacity: 90%;
+                }
+            }
+        }
+    }
+}
 
 /*Vista desktop*/
 @media only screen and(min-width: 992px) {
@@ -1090,6 +1250,10 @@ footer {
     }
     /*Seccion Recetas*/
     .section4 h2 {
+        font-size: 6rem;
+    }
+    /*Seccion Planes*/
+    .section5 h2 {
         font-size: 6rem;
     }
 }
