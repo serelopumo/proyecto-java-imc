@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <script type="module" src="assets/js/main.js" defer></script>
-    
+
 </head>
 
 <body>
@@ -114,7 +114,8 @@
                             ¿Cuántos años tienes?
                         </div>
                         <div class="section2__calorias--edad--input">
-                            <input id="inputCalEdad" placeholder="21" maxlength="3" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            <input id="inputCalEdad" placeholder="21" maxlength="3" type="number"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             <h4>años</h4>
                         </div>
                     </div>
@@ -123,7 +124,8 @@
                             ¿Cuánto mides?
                         </div>
                         <div class="section2__calorias--altura--input">
-                            <input id="inputCalAltura" placeholder="160" maxlength="3" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            <input id="inputCalAltura" placeholder="160" maxlength="3" type="number"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             <h4>cm</h4>
                         </div>
                     </div>
@@ -132,7 +134,8 @@
                             ¿Cuánto pesas?
                         </div>
                         <div class="section2__calorias--peso--input">
-                            <input id="inputCalPeso" placeholder="60" maxlength="3" type="number"oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            <input id="inputCalPeso" placeholder="60" maxlength="3" type="number"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             <h4>kg</h4>
                         </div>
                     </div>
@@ -143,28 +146,36 @@
                         <div class="section2__calorias--actividadfisica--contenido">
                             <div class="section2__calorias--actividadfisica--contenido1">
                                 <img class="img-actividadfisica" src="./assets/img/actividadfisica1.png" alt="">
-                                <input id="btnCalAf1" type="button" class="section2__calorias--actividadfisica--contenido1--btn" value="Sedentario"></input>
+                                <input id="btnCalAf1" type="button"
+                                    class="section2__calorias--actividadfisica--contenido1--btn"
+                                    value="Sedentario"></input>
                                 <h4>Personas que están la mayor tiempo sentadas en ambientes cerrados</h4>
                             </div>
                             <div class="section2__calorias--actividadfisica--contenido2">
                                 <img class="img-actividadfisica2" src="./assets/img/actividadfisica2.png" alt="">
-                                <input id="btnCalAf2" type="button" class="section2__calorias--actividadfisica--contenido2--btn" value="Moderado o poco Activo">
+                                <input id="btnCalAf2" type="button"
+                                    class="section2__calorias--actividadfisica--contenido2--btn"
+                                    value="Moderado o poco Activo">
                                 </input>
                                 <h4>Sobre todo de pie (ej. cajero, profesor)</h4>
                             </div>
                             <div class="section2__calorias--actividadfisica--contenido3">
                                 <img class="img-actividadfisica2" src="./assets/img/actividadfisica3.png" alt="">
-                                <input id="btnCalAf3" type="button" class="section2__calorias--actividadfisica--contenido2--btn" value="Activo"></input>
+                                <input id="btnCalAf3" type="button"
+                                    class="section2__calorias--actividadfisica--contenido2--btn" value="Activo"></input>
                                 <h4>Sobre todo andando (ej. vendedor, camarero)</h4>
                             </div>
                             <div class="section2__calorias--actividadfisica--contenido4">
                                 <img class="img-actividadfisica2" src="./assets/img/actividadfisica4.png" alt="">
-                                <input id="btnCalAf4" type="button" class="section2__calorias--actividadfisica--contenido2--btn" value="Muy activo"></input>
+                                <input id="btnCalAf4" type="button"
+                                    class="section2__calorias--actividadfisica--contenido2--btn"
+                                    value="Muy activo"></input>
                                 <h4>Trabajos físicos (ej. construcción)</h4>
                             </div>
                         </div>
                     </div>
-                    <input id="btnCalculoCalorias" type="submit" class="section2__calorias--btnCalculo" value="Calcula tus calorias diarias recomendadas">
+                    <input id="btnCalculoCalorias" type="submit" class="section2__calorias--btnCalculo"
+                        value="Calcula tus calorias diarias recomendadas">
                     </input>
                     <div class="section2__resultadoCalorias">
                         <!--Agrego resultado desde js-->
@@ -196,11 +207,19 @@
             </section>
             <section id="recetas" class="section4">
                 <h2>Buscador de Recetas</h2>
+                <form class="d-flex" role="search">
+                    <input id="inputBuscarReceta" class="form-control me-2" type="search"
+                        placeholder="Nombre de la Receta" aria-label="Search">
+                    <button id="btnBuscarReceta" class="btn btn-outline-success section4__btnRecetas"
+                        type="submit">Buscar</button>
+                </form>
+                <div id="section4__recetas"></div>
+              
             </section>
             <section class="section5">
                 <h2>Planes Online</h2>
                 <div id="tarjetasPlanes" class="section5__tarjetas">
-                   <!--Agrego contenido con js -->
+                    <!--Agrego contenido con js -->
                 </div>
             </section>
     </div>

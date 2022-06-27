@@ -176,44 +176,98 @@ btnBuscarNutri.addEventListener("click", (e) => {
 ------------------------------------------------------------------------------------------
  */
 
+//Consulto mi appi de buscador de recetas y envio datos segun la comida/receta consultada
 
+let inputReceta;
+const btnReceta = document.getElementById('btnBuscarReceta');
+btnReceta.addEventListener('click',(e)=>{
+    e.preventDefault();
+    const contenidoRecetas = document.getElementById('section4__recetas');
+    BorrarContenidoRecetas(contenidoRecetas);
+    BuscarRecetas();
+    LlamarApi(inputReceta.value);
+});
 
+async function BuscarRecetas() {
+    inputReceta = document.getElementById('inputBuscarReceta');
+    inputReceta.addEventListener('input',()=>{
+    console.log(inputReceta.value)
+    });
+}
 
+async function LlamarApi(recetaBuscada){
+    let APP_ID = "220a1d60";
+    let APP_KEY = "e4aa815d97272f0e7b21246cab19ff33";
+    let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}&q=${recetaBuscada}`);
+    let data = await response.json();
+    data.hits.forEach(element => {
+        traerRecetas(element)
+    })
+    console.log(data)
+
+    // const search =document.querySelectorAll('.searchmore');
+    // search.forEach(function(userItem) {
+    //     userItem.addEventListener('click', ()=>{
+    //         console.log(data.hits[1].recipe.label)
+    //     })
+    //   });
+
+}
+
+async function traerRecetas(data) {
+    
+    const contenidoRecetas = document.getElementById('section4__recetas');
+    let nuevaRecetacontenido = document.createElement('div')
+    nuevaRecetacontenido.className = "section4__cardReceta";
+    nuevaRecetacontenido.innerHTML = `<div class="section4__cardReceta--individual"><img src="${data.recipe.image}" class="section4__cardReceta--imagen" alt="${data.recipe.label}">
+    <h3 class="section4__cardReceta--titulo">${data.recipe.label}</h3>
+    <div class="section4__cardReceta--datos">
+        <p>Calorias: ${data.recipe.calories.toFixed(0)} <br>Tipo de comida: ${data.recipe.mealType}</p>
+    </div>  <i  class="fa-solid fa-plus searchmore" ></i></div>`
+    contenidoRecetas.append(nuevaRecetacontenido)
+}
+
+function BorrarContenidoRecetas(contenidoRecetas){
+    contenidoRecetas.innerHTML = "";
+}
 /*
 ------------------------------------------------------------------------------------------
 --------------------------------------PLANES----------------------------------------------
 ------------------------------------------------------------------------------------------
  */
+
+//Traigo datos de mi archivo json utilizando fetch y ruta relativa
 //Plan1
 let contenidoPlanes = document.getElementById('tarjetasPlanes');
 let nuevoPlan = document.createElement('div')
 nuevoPlan.className = "section5__tarjetas--card1";
-nuevoPlan.innerHTML = Nutris.TraerPlanes();
+nuevoPlan.innerHTML = await Nutris.TraerPlanes();
 contenidoPlanes.append(nuevoPlan);
 
 //Plan2
 let contenidoPlanes2 = document.getElementById('tarjetasPlanes');
 let nuevoPlan2 = document.createElement('div')
 nuevoPlan2.className = "section5__tarjetas--card2";
-nuevoPlan2.innerHTML = Nutris.TraerPlanes2();
+nuevoPlan2.innerHTML = await Nutris.TraerPlanes2();
 contenidoPlanes2.append(nuevoPlan2);
 
 //Plan3
 let contenidoPlanes3 = document.getElementById('tarjetasPlanes');
 let nuevoPlan3 = document.createElement('div')
 nuevoPlan3.className = "section5__tarjetas--card3";
-nuevoPlan3.innerHTML = Nutris.TraerPlanes3();
+nuevoPlan3.innerHTML = await Nutris.TraerPlanes3();
 contenidoPlanes3.append(nuevoPlan3);
 
 //Agrego alerts en los botons de comprar Planes
 let btnCompraPlan = document.querySelectorAll(".btnComprarPlan");
 
 btnCompraPlan.forEach(element => {
-    element.addEventListener('click', () => {
+    element.addEventListener('click', (e) => {
+        const tituloPlan = e.target.parentElement.childNodes[1].innerHTML.toUpperCase();
         Swal.fire({
-            width:'50%',
-            heightAuto:true,
-            title: '¿Estás seguro que deseas continuar con la compra?',
+            width: '50%',
+            heightAuto: true,
+            title: `¿Estás seguro que deseas comprar ${tituloPlan}?`,
             text: "Empezá tu vida saludable con nuestros planes!!!",
             icon: 'warning',
             showCancelButton: true,
@@ -221,17 +275,14 @@ btnCompraPlan.forEach(element => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'LISTA TU COMPRA',
-                'Tu plan ya fue confirmado',
-                'success'
-              )
+                Swal.fire(
+                    'LISTA TU COMPRA',
+                    'Tu plan ya fue confirmado',
+                    'success'
+                )
             }
-          })
-
-
-
+        })
     })
 })

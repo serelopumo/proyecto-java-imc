@@ -18,79 +18,61 @@ export class Nutricionistas {
 
 }
 
-export const Plan1 = {
-    categoria: "PLAN BASICO",
-    precio: 1500,
-    descripcion: ["1 x  Consulta","Plan Alimentario Personalizado","Nutrium app","Ebook","Comunicación Ilimitada con los Nutricionistas vía email","Lista del Supermercado"]
+let respuesta;
+let planes;
+
+//Traigo datos de mi archivo json utilizando fetch y ruta relativa
+async function BuscarPlanes(i){
+    respuesta = await fetch('./assets/js/planes.json');
+    planes = await respuesta.json();
+    return planes[i];
 }
 
-export const Plan2 = {
-    categoria: "SILVER PACKAGE",
-    precio: 2500,
-    descripcion: ["1 x  Consulta","DNA Test para Dieta y Ejercicio","Test de Intolerancias Alimenticias(200 tipos de dietas)","1 x Plan Alimentario Personalizado","Nutrium app","Ebook","Comunicación Ilimitada con los Nutricionistas vía email","Lista del Supermercado"]
-}
-export const Plan3 = {
-    categoria: "GOLD PACKAGE",
-    precio: 3200,
-    descripcion: ["3 x  Consulta","DNA Test para Dieta y Ejercicio","3 x Plan Alimentario Personalizado","Nutrium app","Ebook","Comunicación Ilimitada con los Nutricionistas vía email","Lista del Supermercado"]
-}
-
-//Aplico desestructoracion
-const{categoria,precio,descripcion} = Plan1;
-const{
-    categoria: categoria2,
-    precio: precio2,
-    descripcion: descripcion2
-}= Plan2
-
-const{
-    categoria: categoria3,
-    precio: precio3,
-    descripcion: descripcion3
-}= Plan3
-
-export function TraerPlanes (){
-    return ` <h3>${categoria}</h3>
-    <h4>$${precio}</h4>
+export async function TraerPlanes (){
+    const datos = await BuscarPlanes(0);
+    return ` <h3>${datos.categoria}</h3>
+    <h4>$${datos.precio}</h4>
     <ul>
-        <li>${descripcion[0]}</li>
-        <li>${descripcion[1]}</li>
-        <li>${descripcion[2]}</li>
-        <li>${descripcion[3]}</li>
-        <li>${descripcion[4]}</li>
-        <li>${descripcion[5]}</li>
+        <li>${datos.descripcion[0]}</li>
+        <li>${datos.descripcion[1]}</li>
+        <li>${datos.descripcion[2]}</li>
+        <li>${datos.descripcion[3]}</li>
+        <li>${datos.descripcion[4]}</li>
+        <li>${datos.descripcion[5]}</li>
       </ul>
     <button class="btnComprarPlan">COMPRAR</button>`
 }
 
-export function TraerPlanes2 (){
-    return ` <h3>${categoria2}</h3>
-    <h4>$${precio2}</h4>
+export async function TraerPlanes2 (){
+    const datos = await BuscarPlanes(1);
+    return ` <h3>${datos.categoria}</h3>
+    <h4>$${datos.precio}</h4>
     <ul>
-        <li>${descripcion2[0]}</li>
-        <li>${descripcion2[1]}</li>
-        <li>${descripcion2[2]}</li>
-        <li>${descripcion2[3]}</li>
-        <li>${descripcion2[4]}</li>
-        <li>${descripcion2[5]}</li>
-        <li>${descripcion2[6]}</li>
-        <li>${descripcion2[7]}</li>
+        <li>${datos.descripcion[0]}</li>
+        <li>${datos.descripcion[1]}</li>
+        <li>${datos.descripcion[2]}</li>
+        <li>${datos.descripcion[3]}</li>
+        <li>${datos.descripcion[4]}</li>
+        <li>${datos.descripcion[5]}</li>
+        <li>${datos.descripcion[6]}</li>
+        <li>${datos.descripcion[7]}</li>
       </ul>
     <button class="btnComprarPlan">COMPRAR</button>`
 }
 
 
-export function TraerPlanes3 (){
-    return ` <h3>${categoria3}</h3>
-    <h4>$${precio3}</h4>
+export async function TraerPlanes3 (){
+    const datos = await BuscarPlanes(2);
+    return ` <h3 class="tituloPlan">${datos.categoria}</h3>
+    <h4>$${datos.precio}</h4>
     <ul>
-        <li>${descripcion3[0]}</li>
-        <li>${descripcion3[1]}</li>
-        <li>${descripcion3[2]}</li>
-        <li>${descripcion3[3]}</li>
-        <li>${descripcion3[4]}</li>
-        <li>${descripcion3[5]}</li>
-        <li>${descripcion3[6]}</li>
+        <li>${datos.descripcion[0]}</li>
+        <li>${datos.descripcion[1]}</li>
+        <li>${datos.descripcion[2]}</li>
+        <li>${datos.descripcion[3]}</li>
+        <li>${datos.descripcion[4]}</li>
+        <li>${datos.descripcion[5]}</li>
+        <li>${datos.descripcion[6]}</li>
       </ul>
     <button class="btnComprarPlan">COMPRAR</button>`
 }

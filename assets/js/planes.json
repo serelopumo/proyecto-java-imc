@@ -1,0 +1,41 @@
+[
+    {
+        "categoria": "PLAN BASICO",
+        "precio": 1500,
+        "descripcion": [
+            "1 x  Consulta",
+            "Plan Alimentario Personalizado",
+            "Nutrium app",
+            "Ebook",
+            "Comunicación Ilimitada con los Nutricionistas vía email",
+            "Lista del Supermercado"
+        ]
+    },
+    {
+        "categoria": "SILVER PACKAGE",
+        "precio": 2500,
+        "descripcion": [
+            "1 x  Consulta",
+            "DNA Test para Dieta y Ejercicio",
+            "Test de Intolerancias Alimenticias(200 tipos de dietas)",
+            "1 x Plan Alimentario Personalizado",
+            "Nutrium app",
+            "Ebook",
+            "Comunicación Ilimitada con los Nutricionistas vía email",
+            "Lista del Supermercado"
+        ]
+    },
+    {
+        "categoria": "GOLD PACKAGE",
+        "precio": 3200,
+        "descripcion": [
+            "3 x  Consulta",
+            "DNA Test para Dieta y Ejercicio",
+            "3 x Plan Alimentario Personalizado",
+            "Nutrium app",
+            "Ebook",
+            "Comunicación Ilimitada con los Nutricionistas vía email",
+            "Lista del Supermercado"
+        ]
+    }
+]
