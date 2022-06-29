@@ -1,7 +1,8 @@
 /*
-Traigo Nutricionistas por especialidad o por el buscador
+Traigo Nutricionistas por especialidad o por nombre utilizando el buscador
 */
 
+//TRAIGO TODOS LOS NUTRICIONISTAS
 export function TraerTodosNutris(cartilla,Nutricionistas){
     BorrarContenido();    
     let contenidoCard = document.querySelector('.section3__contenido');
@@ -13,6 +14,7 @@ export function TraerTodosNutris(cartilla,Nutricionistas){
     }
 }
 
+//TRAIGO TODOS LOS NUTRICIONISTAS DE ESPECIALIDAD VEGETARIANOS
 export function TraerNutrisVeg(cartilla,Nutricionistas){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
@@ -25,6 +27,7 @@ export function TraerNutrisVeg(cartilla,Nutricionistas){
     }
 }
 
+//TRAIGO TODOS LOS NUTRICIONISTAS DE ESPECIALIDAD CELIACOS
 export function TraerNutrisCel(cartilla,Nutricionistas){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
@@ -37,6 +40,7 @@ export function TraerNutrisCel(cartilla,Nutricionistas){
     }
 }
 
+//TRAIGO TODOS LOS NUTRICIONISTAS DE ESPECIALIDAD DIABETICOS
 export function TraerNutrisDiab(cartilla,Nutricionistas){
     BorrarContenido();
     let contenidoCard = document.querySelector('.section3__contenido');
@@ -54,6 +58,9 @@ export function BorrarContenido(){
     let contenidoCard = document.querySelector('.section3__contenido');
     contenidoCard.innerHTML = "";
 }
+
+//TRAIGO TODOS LOS NUTRICIONISTAS RELACIONADOS A LA PALABRA INGRESADA EN EL BUSCADOR 
+//UTILIZANDO INCLUDES
 
 export function TraerNutriBuscado(cartilla,Nutricionistas){
     

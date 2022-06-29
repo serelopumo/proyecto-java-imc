@@ -10,16 +10,20 @@ let actividadFisica;
 import * as Nutris from "./clases.js";
 
 //declaro funciones
-import * as funciones from './funcionesNutri.js';
-import * as funcionesIMC from './funciones.js';
+import * as funcionesNutris from './funcionesNutri.js';
+import * as funcionesIMC from './funcionesIMC.js';
 import * as funcionesCal from './funcionesCal.js';
+import * as funcionesPlanes from './funcionesPlanes.js';
+import * as funcionesRecetas from './funcionesRecetas.js';
 
 /*
 ------------------------------------------------------------------------------------------
 ---------------------------------CALORIAS DIARIAS-----------------------------------------
 ------------------------------------------------------------------------------------------
  */
-//Evento en btn genero
+
+/*EVENTO EN LOS BTN GENERO MUJER U HOMBRE SEGUN LO QUE EL USUARIO CLICKEA 
+Y GUARDO ESE DATO - SOLO ADMITE UNA OPCION */
 let btnObtenerGenero = document.getElementById("btngeneroH");
 btnObtenerGenero.addEventListener('focus', () => {
     genero = 1;
@@ -32,28 +36,28 @@ btnObtenerGeneroM.addEventListener('focus', () => {
     console.log(genero)
 })
 
-//Evento en input edad
+//EVENTO EN EL INPUT EDAD Y GUARDO ESE DATO
 let inputEdad = document.getElementById("inputCalEdad");
 inputEdad.addEventListener("input", () => {
     edad = parseInt(inputEdad.value);
     console.log(edad)
 })
 
-//Evento en input talla
+//EVENTO EN EL INPUT TALLA Y GUARDO ESE DATO
 let inputAltura = document.getElementById("inputCalAltura");
 inputAltura.addEventListener("input", () => {
     talla = parseInt(inputAltura.value);
     console.log(talla)
 })
 
-//Evento en input peso
+//EVENTO EN EL INPUT PESO Y GUARDO ESE DATO
 let inputPeso = document.getElementById("inputCalPeso");
 inputPeso.addEventListener("input", () => {
     peso = parseInt(inputPeso.value);
     console.log(peso)
 })
 
-//Evento en btn actividad fisica
+//EVENTO EN EL BTN ACTIVIDAD FISICA Y GUARDO ESE DATO - SOLO ADMITE UNA OPCION
 let btnAcf1 = document.getElementById("btnCalAf1");
 btnAcf1.addEventListener("focus", () => {
     actividadFisica = 1;
@@ -78,7 +82,7 @@ btnAcf4.addEventListener("focus", () => {
     console.log(actividadFisica)
 })
 
-//Evento en btn calculo calorias diarias
+//EVENTO EN EL BTN CALCULAR CALORIAS DIARIAS RECOMENDADAS
 let btnCalculo = document.getElementById("formularioCalorias");
 btnCalculo.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -98,7 +102,8 @@ btnCalcularIMC.addEventListener('click', () => {
     funcionesIMC.ClickenIMC()
 });
 
-//Evento en calcular otro IMC
+/*EVENTO EN EL BTN CALCULAR OTRO IMC - BORRA EL RESULTADO IMC CARGADO ANTERIORMENTE 
+PERMITIENDO CONSULAR OTRO*/
 let btnCalcularOtroIMC = document.getElementById("btnBorrarCalculoIMC");
 btnCalcularOtroIMC.addEventListener('click', () => {
     funcionesIMC.BorrarContenidoIMC()
@@ -128,46 +133,46 @@ let cartilla = [
 cartilla.push(new Nutris.Nutricionistas("Carlos Javier Caire", "Palermo", "Olleros 1300", "vegetarianos", "sancor", "1198453219", "./assets/img/nutri8.jpg"));
 
 //Utilizo spread de array para agregar un nutricionista
-function agregarNutri(nombre, barrio, direccion, especialidad, obrasocial, telefono, imagen) {
+function AgregarNutri(nombre, barrio, direccion, especialidad, obrasocial, telefono, imagen) {
     const nutri = new Nutris.Nutricionistas(nombre, barrio, direccion, especialidad, obrasocial, telefono, imagen);
     cartilla = [...cartilla, nutri];
 }
-agregarNutri("Marta Milikowsky", "Caballito", "Av. Acoyte 702", "vegetarianos", "osde", "1156452187", "./assets/img/nutri13.jpg");
+AgregarNutri("Marta Milikowsky", "Caballito", "Av. Acoyte 702", "vegetarianos", "osde", "1156452187", "./assets/img/nutri13.jpg");
 
 //Agrego metodos de busqueda
 //Evento en el boton btnTaerTodosNutris 
 let btnNutris = document.getElementById("btnTaerTodosNutris");
 btnNutris.addEventListener("click", (e) => {
     e.preventDefault();
-    funciones.TraerTodosNutris(cartilla, Nutris.Nutricionistas)
+    funcionesNutris.TraerTodosNutris(cartilla, Nutris.Nutricionistas)
 });
 
 //Traer Nutris vegetarianos: creo evento en el boton y llamo a funcion que interactua con el DOM
 let btnNutrisVeg = document.getElementById("btnTraerNutrisVeg");
 btnNutrisVeg.addEventListener("click", (e) => {
     e.preventDefault();
-    funciones.TraerNutrisVeg(cartilla, Nutris.Nutricionistas)
+    funcionesNutris.TraerNutrisVeg(cartilla, Nutris.Nutricionistas)
 });
 
 //Traer Nutris celiacos: creo evento en el boton y llamo a funcion que interactua con el DOM
 let btnNutrisCel = document.getElementById("btnTraerNutrisCel");
 btnNutrisCel.addEventListener("click", (e) => {
     e.preventDefault();
-    funciones.TraerNutrisCel(cartilla, Nutris.Nutricionistas)
+    funcionesNutris.TraerNutrisCel(cartilla, Nutris.Nutricionistas)
 });
 
 //Traer Nutris diabeticos: creo evento en el boton y llamo a funcion que interactua con el DOM
 let btnNutrisDiabe = document.getElementById("btnTraerNutrisDiab");
 btnNutrisDiabe.addEventListener("click", (e) => {
     e.preventDefault();
-    funciones.TraerNutrisDiab(cartilla, Nutris.Nutricionistas)
+    funcionesNutris.TraerNutrisDiab(cartilla, Nutris.Nutricionistas)
 });
 
-//creo evento en el btn buscar Nutro y llamo a la function TraerNutriBuscado
+//creo evento en el btn buscar Nutri y en el input buscar nutri y llamo a la function TraerNutriBuscado
 let btnBuscarNutri = document.getElementById("btnBuscarNutri");
 btnBuscarNutri.addEventListener("click", (e) => {
     e.preventDefault();
-    funciones.TraerNutriBuscado(cartilla, Nutris.Nutricionistas)
+    funcionesNutris.TraerNutriBuscado(cartilla, Nutris.Nutricionistas)
 });
 
 /*
@@ -177,59 +182,15 @@ btnBuscarNutri.addEventListener("click", (e) => {
  */
 
 //Consulto mi appi de buscador de recetas y envio datos segun la comida/receta consultada
-
-let inputReceta;
 const btnReceta = document.getElementById('btnBuscarReceta');
 btnReceta.addEventListener('click',(e)=>{
     e.preventDefault();
     const contenidoRecetas = document.getElementById('section4__recetas');
-    BorrarContenidoRecetas(contenidoRecetas);
-    BuscarRecetas();
-    LlamarApi(inputReceta.value);
+    funcionesRecetas.BorrarContenidoRecetas(contenidoRecetas);
+    funcionesRecetas.BuscarRecetas();
+    funcionesRecetas.LlamarApi();
 });
 
-async function BuscarRecetas() {
-    inputReceta = document.getElementById('inputBuscarReceta');
-    inputReceta.addEventListener('input',()=>{
-    console.log(inputReceta.value)
-    });
-}
-
-async function LlamarApi(recetaBuscada){
-    let APP_ID = "220a1d60";
-    let APP_KEY = "e4aa815d97272f0e7b21246cab19ff33";
-    let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}&q=${recetaBuscada}`);
-    let data = await response.json();
-    data.hits.forEach(element => {
-        traerRecetas(element)
-    })
-    console.log(data)
-
-    // const search =document.querySelectorAll('.searchmore');
-    // search.forEach(function(userItem) {
-    //     userItem.addEventListener('click', ()=>{
-    //         console.log(data.hits[1].recipe.label)
-    //     })
-    //   });
-
-}
-
-async function traerRecetas(data) {
-    
-    const contenidoRecetas = document.getElementById('section4__recetas');
-    let nuevaRecetacontenido = document.createElement('div')
-    nuevaRecetacontenido.className = "section4__cardReceta";
-    nuevaRecetacontenido.innerHTML = `<div class="section4__cardReceta--individual"><img src="${data.recipe.image}" class="section4__cardReceta--imagen" alt="${data.recipe.label}">
-    <h3 class="section4__cardReceta--titulo">${data.recipe.label}</h3>
-    <div class="section4__cardReceta--datos">
-        <p>Calorias: ${data.recipe.calories.toFixed(0)} <br>Tipo de comida: ${data.recipe.mealType}</p>
-    </div>  <i  class="fa-solid fa-plus searchmore" ></i></div>`
-    contenidoRecetas.append(nuevaRecetacontenido)
-}
-
-function BorrarContenidoRecetas(contenidoRecetas){
-    contenidoRecetas.innerHTML = "";
-}
 /*
 ------------------------------------------------------------------------------------------
 --------------------------------------PLANES----------------------------------------------
@@ -241,24 +202,24 @@ function BorrarContenidoRecetas(contenidoRecetas){
 let contenidoPlanes = document.getElementById('tarjetasPlanes');
 let nuevoPlan = document.createElement('div')
 nuevoPlan.className = "section5__tarjetas--card1";
-nuevoPlan.innerHTML = await Nutris.TraerPlanes();
+nuevoPlan.innerHTML = await funcionesPlanes.TraerPlanes();
 contenidoPlanes.append(nuevoPlan);
 
 //Plan2
 let contenidoPlanes2 = document.getElementById('tarjetasPlanes');
 let nuevoPlan2 = document.createElement('div')
 nuevoPlan2.className = "section5__tarjetas--card2";
-nuevoPlan2.innerHTML = await Nutris.TraerPlanes2();
+nuevoPlan2.innerHTML = await funcionesPlanes.TraerPlanes2();
 contenidoPlanes2.append(nuevoPlan2);
 
 //Plan3
 let contenidoPlanes3 = document.getElementById('tarjetasPlanes');
 let nuevoPlan3 = document.createElement('div')
 nuevoPlan3.className = "section5__tarjetas--card3";
-nuevoPlan3.innerHTML = await Nutris.TraerPlanes3();
+nuevoPlan3.innerHTML = await funcionesPlanes.TraerPlanes3();
 contenidoPlanes3.append(nuevoPlan3);
 
-//Agrego alerts en los botons de comprar Planes
+//Agrego alerts de libreria en los btn de comprar Planes
 let btnCompraPlan = document.querySelectorAll(".btnComprarPlan");
 
 btnCompraPlan.forEach(element => {

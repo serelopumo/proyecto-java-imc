@@ -1054,10 +1054,11 @@ footer {
     }
     &__cardReceta {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 1em;
-        width: 30%;
+        width: 80%;
         height: auto;
         background-color: $color-cuaternario;
         border-radius: 50%;
@@ -1400,6 +1401,10 @@ footer {
     /*Seccion Recetas*/
     .section4 h2 {
         font-size: 6rem;
+    }
+    .section4__cardReceta {
+        width: 30%;
+        flex-direction: row;
     }
 
     /*Seccion Planes*/

@@ -11,9 +11,10 @@ Muy Activa o Intensa ----------------100%
 GER + AF = GED
 */
 
-//declaro variables
+//DECLARO VARIABLES
 let resultadoFormula;
 
+//FUNCTION AL HACER CLICK EN EL BTN RECIBO LOS DATOS INGRESADOS Y EN BASE A ESO ACTUO
 export function CalcularCaloriasDiarias(genero, edad, talla, peso, actividadFisica) {
     BorrarContenidoCal();
     peso = parseInt(peso);
@@ -21,7 +22,7 @@ export function CalcularCaloriasDiarias(genero, edad, talla, peso, actividadFisi
     talla = parseInt(talla);
     actividadFisica = parseInt(actividadFisica);
     console.log(`peso:${peso}, genero:${genero}, talla:${talla}, actividad fisica:${actividadFisica}`);
-    if ((!peso) || (!genero) || (!talla) || (!actividadFisica)) {
+    if ((!peso) || (!edad) || (!genero) || (!talla) || (!actividadFisica)) {
         let contenidoCal = document.querySelector('.section2__resultadoCalorias');
         let resultadoCal = document.createElement('div')
         resultadoCal.className = "section2__resultadoCalorias--datos";
@@ -38,22 +39,24 @@ export function CalcularCaloriasDiarias(genero, edad, talla, peso, actividadFisi
 
 }
 
+//MUESTRO ERROR AL FALTAR ALGUN DATO DE CADA CUADRO
 export function ErrorValidacionCal() {
     return `<h3>¡Vaya!, algo ha ido mal. Por favor, corrige los campos destacados.</h3>`
 }
 
+//BORRO RESULTADO DE CALORIAS
 export function BorrarContenidoCal() {
     let contenidoCal = document.querySelector('.section2__resultadoCalorias');
     contenidoCal.innerHTML = "";
 }
 
+//MUESTRO CALORIAS DIARIAS UTILIZANDO EL DOM
 export function MostrarCaloriasDiar() {
     return `<h3>Sus calorias diarias recomendadas son: ${resultadoFormula.toFixed(0)}</h3>`
 }
 
+//APLICO FORMULA PARA EL CALCULO DE CALORIAS EN BASE A LOS DATOS INGRESADOS
 export function calcularFormula(genero, edad, talla, peso, actividadFisica) {
-    //Aplico operador ternario
-    
     resultadoFormula = (genero == 1);
     resultadoFormula ? resultadoFormula = ((10 * peso) + (6.25 * talla) - (5 * edad) + 5 ) : resultadoFormula = ((10 * peso) + (6.25 * talla) - (5 * edad) - 161);
 

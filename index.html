@@ -114,8 +114,7 @@
                             ¿Cuántos años tienes?
                         </div>
                         <div class="section2__calorias--edad--input">
-                            <input id="inputCalEdad" placeholder="21" maxlength="3" type="number"
-                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            <input id="inputCalEdad" placeholder="160" maxlength="3" min="1" type="tel">
                             <h4>años</h4>
                         </div>
                     </div>
@@ -124,8 +123,7 @@
                             ¿Cuánto mides?
                         </div>
                         <div class="section2__calorias--altura--input">
-                            <input id="inputCalAltura" placeholder="160" maxlength="3" type="number"
-                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            <input id="inputCalAltura" placeholder="160" maxlength="3" min="1" type="tel">
                             <h4>cm</h4>
                         </div>
                     </div>
@@ -134,8 +132,7 @@
                             ¿Cuánto pesas?
                         </div>
                         <div class="section2__calorias--peso--input">
-                            <input id="inputCalPeso" placeholder="60" maxlength="3" type="number"
-                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            <input id="inputCalPeso" placeholder="160" maxlength="3" min="1" type="tel">
                             <h4>kg</h4>
                         </div>
                     </div>
@@ -214,7 +211,7 @@
                         type="submit">Buscar</button>
                 </form>
                 <div id="section4__recetas"></div>
-              
+                <!-- Agrego contenido con js con la clase section4__recetas-->
             </section>
             <section class="section5">
                 <h2>Planes Online</h2>

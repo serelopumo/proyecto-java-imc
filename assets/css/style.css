@@ -826,10 +826,11 @@ footer {
     gap: 2em; }
   .section4__cardReceta {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
-    width: 30%;
+    width: 80%;
     height: auto;
     background-color: #f7f1e2ff;
     border-radius: 50%;
@@ -1064,6 +1065,9 @@ footer {
   /*Seccion Recetas*/
   .section4 h2 {
     font-size: 6rem; }
+  .section4__cardReceta {
+    width: 30%;
+    flex-direction: row; }
   /*Seccion Planes*/
   .section5 h2 {
     font-size: 6rem; }
