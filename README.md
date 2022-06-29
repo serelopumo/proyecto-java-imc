@@ -3,6 +3,7 @@
 ### 1. Cálculo de Indice de Masa Corporal: 
 Es un indicador que si bien no es una medición directa, se incluye dentro de la
 antropometría y responde a la fórmula: IMC = Peso actual(kg) / Talla^2(m)
+
 El IMC correlaciona bien con el porcentaje de grasa corporal y el riesgo de
 morbimortalidad. Por eso el Instituto de Medicina de la Academia Nacional de Ciencias
 de los Estados Unidos y la Organización Mundial de la Salud lo utilizan como método
